@@ -1,84 +1,108 @@
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../../hooks/useLanguage.js';
 import { WHATSAPP } from '../../config/site.config.js';
 
 export default function Hero() {
-  const { text, lang } = useLanguage();
+  const { lang, text } = useLanguage();
 
   return (
     <section className="hero">
       <div className="hero__bg">
+        <div className="hero__gradient"/>
         <img
           src="/images/hero/hc-hero-main.jpg"
-          alt="Hispanos Comunidad — comunidad latina Greenville SC"
+          alt="Hispanos Comunidad — Greenville SC"
           className="hero__img"
           loading="eager"
           fetchpriority="high"
-          width="1440"
-          height="900"
+          width="1440" height="900"
+          onError={e => { e.target.style.display = 'none'; }}
         />
-        <div className="hero__overlay" />
+        <div className="hero__overlay"/>
       </div>
 
       <div className="hero__content container">
-        <div className="hero__text fade-up visible">
-          <span className="eyebrow hero__eyebrow">
-            Hispanos Comunidad · Greenville, SC
-          </span>
+        <div className="hero__text">
+
+          <div className="hero__eyebrow-wrap">
+            <img src="/images/logos/hc-logo-seal.png" alt="HC" className="hero__seal"
+              width="56" height="56"
+              onError={e => { e.target.style.display = 'none'; }}/>
+            <span className="eyebrow hero__eyebrow">
+              Hispanos Comunidad · Greenville, SC
+            </span>
+          </div>
 
           <h1 className="hero__headline">
-            <span className="hero__headline-1">
-              {text('No queremos venderte nada.', 'We don\'t want to sell you anything.')}
-            </span>
-            <span className="hero__headline-2">
-              {text('Queremos que lo sientas.', 'We want you to feel it.')}
-            </span>
+            {text(
+              <>Todo lo que tu familia<br/>necesita para prosperar.<br/><em>En un solo lugar.</em></>,
+              <>Everything your family<br/>needs to thrive.<br/><em>In one place.</em></>
+            )}
           </h1>
+
+          <p className="hero__tagline">
+            {text('Servicios Esenciales para la Comunidad Latina', 'Essential Services for the Latino Community')}
+          </p>
 
           <p className="hero__body">
             {text(
-              'Somos la organización más completa para familias y empresarios latinos en Upstate South Carolina. Préstamos, seguros, tecnología, educación, salud y comunidad — todo en un solo lugar, respaldado por un equipo que te conoce.',
-              'We are the most complete organization for Latino families and entrepreneurs in Upstate South Carolina. Loans, insurance, technology, education, health, and community — all in one place, backed by a team that knows you.'
+              'Préstamos, seguros, educación empresarial, y tecnología — sin barreras de idioma, sin discriminación por documentación. El ecosistema completo para que tu familia y tu negocio crezcan en Upstate South Carolina.',
+              'Loans, insurance, business education, and technology — without language barriers, without documentation discrimination. The complete ecosystem for your family and business to grow in Upstate South Carolina.'
             )}
           </p>
 
+          {/* Four pillars */}
+          <div className="hero__pillars">
+            {[
+              { path: '/bonanza', label_es: 'Préstamos',  label_en: 'Loans',      color: 'var(--bonanza-gold)', icon: '💰' },
+              { path: '/zivo',    label_es: 'Seguros',    label_en: 'Insurance',  color: 'var(--zivo-teal)',    icon: '🛡️' },
+              { path: '/media',   label_es: 'Negocios',   label_en: 'Business',   color: 'var(--media-lilac)',  icon: '📱' },
+              { path: '/unidos',  label_es: 'Comunidad',  label_en: 'Community',  color: 'var(--unidos-green)', icon: '🤝' },
+            ].map((p, i) => (
+              <Link key={i} to={p.path} className="hero__pillar" style={{ '--pillar-color': p.color }}>
+                <span className="hero__pillar-icon">{p.icon}</span>
+                <span className="hero__pillar-label">{lang === 'es' ? p.label_es : p.label_en}</span>
+              </Link>
+            ))}
+          </div>
+
           <div className="hero__actions">
-            <a href="#servicios" className="btn btn--brass hero__btn-primary">
-              {text('Explorar nuestros servicios', 'Explore our services')}
+            <a href={WHATSAPP.general} target="_blank" rel="noopener noreferrer" className="btn hero__btn-primary">
+              {text('Hablar con nosotros', 'Talk to us')}
             </a>
-            <a
-              href={WHATSAPP.general}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--outline hero__btn-secondary"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              {text('Escríbenos por WhatsApp', 'Message us on WhatsApp')}
-            </a>
+            <Link to="/nosotros" className="btn hero__btn-outline">
+              {text('Conocer al equipo', 'Meet the team')}
+            </Link>
           </div>
 
           <div className="hero__trust">
             {[
-              { es: 'Sin seguro social', en: 'No SSN required' },
+              { es: '20,000+ préstamos', en: '20,000+ loans' },
+              { es: '5,000+ familias aseguradas', en: '5,000+ families insured' },
+              { es: '13 años en SC', en: '13 years in SC' },
               { es: '100% en español', en: '100% in Spanish' },
-              { es: 'Respuesta en 24h', en: '24h response' },
-              { es: '13 años de servicio', en: '13 years of service' },
-            ].map((item, i) => (
+            ].map((t, i) => (
               <span key={i} className="hero__trust-item">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <circle cx="6" cy="6" r="6" fill="var(--hc-brass)" opacity="0.3"/>
-                  <path d="M3 6l2 2 4-4" stroke="var(--hc-brass)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <circle cx="6" cy="6" r="6" fill="var(--hc-gold)" opacity="0.3"/>
+                  <path d="M3 6l2 2 4-4" stroke="var(--hc-gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                {lang === 'es' ? item.es : item.en}
+                {lang === 'es' ? t.es : t.en}
               </span>
             ))}
           </div>
         </div>
-      </div>
 
-      <div className="hero__scroll-indicator" aria-hidden="true">
-        <span />
+        <div className="hero__avatar-col">
+          <img
+            src="/images/team/avatars/paola-green-skirt.png"
+            alt="Paola Rogers — Fundadora Hispanos Comunidad"
+            className="hero__paola"
+            width="340" height="420"
+            loading="eager"
+            onError={e => { e.target.style.display = 'none'; }}
+          />
+        </div>
       </div>
 
       <style>{`
@@ -90,76 +114,132 @@ export default function Hero() {
           padding-top: var(--nav-height);
           overflow: hidden;
         }
-        .hero__bg {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
+        .hero__bg { position: absolute; inset: 0; z-index: 0; }
+        .hero__gradient {
+          position: absolute; inset: 0;
+          background: linear-gradient(135deg, #0d1e30 0%, #1f4268 50%, #163355 100%);
         }
         .hero__img {
+          position: absolute; inset: 0;
           width: 100%; height: 100%;
           object-fit: cover;
-          object-position: center 30%;
+          opacity: 0.15;
         }
         .hero__overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            105deg,
-            rgba(30,26,46,0.88) 0%,
-            rgba(30,26,46,0.70) 50%,
-            rgba(30,26,46,0.40) 100%
-          );
+          position: absolute; inset: 0;
+          background: linear-gradient(90deg, rgba(13,30,48,0.85) 0%, rgba(13,30,48,0.4) 60%, rgba(13,30,48,0.1) 100%);
         }
+
         .hero__content {
-          position: relative;
-          z-index: 1;
+          position: relative; z-index: 1;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: var(--space-xl);
+          align-items: center;
           padding-top: var(--space-xl);
           padding-bottom: var(--space-xl);
         }
-        .hero__text { max-width: 640px; }
-        .hero__eyebrow { color: var(--hc-brass); margin-bottom: var(--space-sm); }
-        .hero__headline {
+
+        .hero__eyebrow-wrap {
           display: flex;
-          flex-direction: column;
-          gap: 4px;
+          align-items: center;
+          gap: var(--space-sm);
+          margin-bottom: var(--space-sm);
+        }
+        .hero__seal {
+          width: 48px; height: 48px;
+          object-fit: contain;
+          filter: drop-shadow(0 2px 8px rgba(226,175,48,0.4));
+        }
+        .hero__eyebrow { color: var(--hc-gold); margin-bottom: 0; }
+
+        .hero__headline {
+          font-family: var(--font-heading);
+          font-size: clamp(2rem, 4.5vw, 3.8rem);
+          font-weight: 400;
+          color: var(--hc-ivory);
+          line-height: 1.15;
+          margin-bottom: var(--space-sm);
+          letter-spacing: -0.02em;
+        }
+        .hero__headline em {
+          color: var(--hc-gold);
+          font-style: normal;
+          font-weight: 300;
+        }
+
+        .hero__tagline {
+          font-family: var(--font-heading);
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
           margin-bottom: var(--space-md);
         }
-        .hero__headline-1 {
-          font-family: var(--font-heading);
-          font-size: clamp(2.4rem, 5vw, 4.2rem);
-          font-weight: 300;
-          color: var(--hc-ivory);
-          line-height: 1.08;
-        }
-        .hero__headline-2 {
-          font-family: var(--font-heading);
-          font-size: clamp(2.4rem, 5vw, 4.2rem);
-          font-weight: 300;
-          font-style: italic;
-          color: var(--hc-brass);
-          line-height: 1.08;
-        }
+
         .hero__body {
           font-size: 1.05rem;
-          color: rgba(253,249,245,0.78);
+          color: rgba(253,249,245,0.75);
           line-height: 1.85;
-          margin-bottom: var(--space-md);
-          max-width: 540px;
+          max-width: 520px;
+          margin-bottom: var(--space-lg);
         }
+
+        .hero__pillars {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--space-xs);
+          margin-bottom: var(--space-lg);
+        }
+        .hero__pillar {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 18px;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.12);
+          border-bottom: 2px solid var(--pillar-color);
+          border-radius: var(--radius-md);
+          text-decoration: none;
+          font-family: var(--font-heading);
+          font-size: 0.72rem;
+          font-weight: 500;
+          color: rgba(255,255,255,0.85);
+          letter-spacing: 0.06em;
+          transition: all var(--duration) var(--ease);
+        }
+        .hero__pillar:hover {
+          background: rgba(255,255,255,0.12);
+          color: white;
+          transform: translateY(-2px);
+        }
+        .hero__pillar-icon { font-size: 1.1rem; }
+
         .hero__actions {
           display: flex;
           flex-wrap: wrap;
           gap: var(--space-sm);
           margin-bottom: var(--space-md);
         }
-        .hero__btn-secondary {
-          border-color: rgba(253,249,245,0.5);
+        .hero__btn-primary {
+          background: var(--hc-gold);
+          color: var(--hc-navy);
+          font-weight: 700;
+          font-family: var(--font-heading);
+          font-size: 0.78rem;
+          letter-spacing: 0.05em;
+          padding: 14px 28px;
+        }
+        .hero__btn-primary:hover { background: #f0c040; }
+        .hero__btn-outline {
+          border: 1.5px solid rgba(255,255,255,0.35);
           color: var(--hc-ivory);
+          font-size: 0.82rem;
+          padding: 14px 28px;
         }
-        .hero__btn-secondary:hover {
-          background: rgba(253,249,245,0.1);
-          border-color: var(--hc-ivory);
-        }
+        .hero__btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
         .hero__trust {
           display: flex;
           flex-wrap: wrap;
@@ -171,31 +251,20 @@ export default function Hero() {
           gap: 6px;
           font-size: 0.78rem;
           font-weight: 500;
-          color: rgba(253,249,245,0.6);
-          letter-spacing: 0.03em;
+          color: rgba(255,255,255,0.55);
         }
-        .hero__scroll-indicator {
-          position: absolute;
-          bottom: 32px;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 1;
+
+        .hero__paola {
+          width: 320px;
+          height: auto;
+          object-fit: contain;
+          object-position: bottom;
+          filter: drop-shadow(0 20px 60px rgba(0,0,0,0.4));
         }
-        .hero__scroll-indicator span {
-          display: block;
-          width: 1px;
-          height: 48px;
-          background: linear-gradient(to bottom, transparent, var(--hc-brass));
-          animation: scroll-fade 2s ease-in-out infinite;
-        }
-        @keyframes scroll-fade {
-          0%, 100% { opacity: 0; transform: scaleY(0.5); transform-origin: top; }
-          50% { opacity: 1; transform: scaleY(1); }
-        }
-        @media (max-width: 600px) {
-          .hero__headline-1, .hero__headline-2 { font-size: clamp(1.9rem, 8vw, 2.8rem); }
-          .hero__actions { flex-direction: column; }
-          .hero__actions .btn { justify-content: center; }
+
+        @media (max-width: 900px) {
+          .hero__content { grid-template-columns: 1fr; }
+          .hero__avatar-col { display: none; }
         }
       `}</style>
     </section>

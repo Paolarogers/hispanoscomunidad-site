@@ -1,68 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
 :root {
-  /* ── HC Brand ── */
-  --hc-navy:        #1e1a2e;
-  --hc-lilac:       #8b7bb5;
-  --hc-brass:       #b8893a;
-  --hc-ivory:       #fdf9f5;
-  --hc-border:      #e5d9ce;
-  --hc-soft:        #6b6478;
-  --hc-text:        #2c2a35;
+  /* ── HC Brand Colors — confirmed March 2026 ── */
+  --hc-navy:        #1f4268;
+  --hc-red:         #8c2717;
+  --hc-gold:        #e2af30;
+  --hc-green:       #2e713b;
+  --hc-brass:       #e2af30;
+  --hc-ivory:       #fdfaf5;
+  --hc-border:      #e8e0d4;
+  --hc-soft:        #5a6472;
+  --hc-text:        #1a2332;
+  --hc-lilac:       #1f4268;
 
   /* ── Pillar: Bonanza ── */
-  --bonanza-gold:   #b8893a;
-  --bonanza-light:  #faeeda;
-  --bonanza-dark:   #2c1f0a;
-  --bonanza-mid:    #854F0B;
+  --bonanza-gold:   #e2af30;
+  --bonanza-light:  #fdf5dc;
+  --bonanza-dark:   #1a2c0a;
+  --bonanza-mid:    #b8893a;
 
   /* ── Pillar: Zivo ── */
-  --zivo-teal:      #1D9E75;
-  --zivo-light:     #E1F5EE;
-  --zivo-dark:      #04342C;
-  --zivo-mid:       #0F6E56;
+  --zivo-teal:      #2e713b;
+  --zivo-light:     #e8f5ea;
+  --zivo-dark:      #0d2e14;
+  --zivo-mid:       #1f5229;
 
   /* ── Pillar: HC Business & Media ── */
-  --media-lilac:    #8b7bb5;
-  --media-light:    #EEEDFE;
-  --media-dark:     #26215C;
-  --media-mid:      #534AB7;
+  --media-lilac:    #1f4268;
+  --media-light:    #e8eef5;
+  --media-dark:     #0d1e30;
+  --media-mid:      #2d5f8f;
 
-  /* ── Pillar: Hispanics United ── */
-  --unidos-green:   #3B6D11;
-  --unidos-light:   #EAF3DE;
-  --unidos-dark:    #173404;
-  --unidos-mid:     #27500A;
+  /* ── Pillar: Unidos ── */
+  --unidos-green:   #2e713b;
+  --unidos-light:   #e8f5ea;
+  --unidos-dark:    #0d2e14;
+  --unidos-mid:     #1f5229;
 
   /* ── Typography ── */
-  --font-heading:   'Cormorant Garamond', Georgia, serif;
-  --font-body:      'Jost', system-ui, sans-serif;
+  --font-heading:   'Unbounded', sans-serif;
+  --font-body:      'Jost', sans-serif;
 
   /* ── Spacing ── */
-  --space-2xs: 4px;
-  --space-xs:  8px;
-  --space-sm:  16px;
-  --space-md:  32px;
-  --space-lg:  64px;
-  --space-xl:  96px;
-  --space-2xl: 140px;
+  --space-xs:   8px;
+  --space-sm:   16px;
+  --space-md:   24px;
+  --space-lg:   48px;
+  --space-xl:   80px;
 
   /* ── Layout ── */
-  --max-width:     1280px;
-  --content-width: 960px;
+  --container:     1200px;
+  --container-sm:  760px;
   --nav-height:    72px;
 
   /* ── Radius ── */
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  16px;
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
 
   /* ── Shadows ── */
-  --shadow-sm:  0 1px 3px rgba(30,26,46,0.08);
-  --shadow-md:  0 4px 16px rgba(30,26,46,0.10);
-  --shadow-lg:  0 12px 40px rgba(30,26,46,0.12);
+  --shadow-sm:  0 2px 8px rgba(31,66,104,0.08);
+  --shadow-md:  0 8px 24px rgba(31,66,104,0.12);
+  --shadow-lg:  0 16px 48px rgba(31,66,104,0.16);
 
-  /* ── Transitions ── */
-  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
-  --duration:   220ms;
+  /* ── Animation ── */
+  --duration:  220ms;
+  --ease:      cubic-bezier(0.4, 0, 0.2, 1);
 }
