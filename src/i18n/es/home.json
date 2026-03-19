@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "eyebrow": "Hispanos Comunidad · Greenville, SC",
+    "headline_1": "No queremos venderte nada.",
+    "headline_2": "Queremos que lo sientas.",
+    "body": "Somos la organización más completa para familias y empresarios latinos en Upstate South Carolina. Préstamos, seguros, tecnología, educación, salud y comunidad — todo en un solo lugar, respaldado por un equipo que te conoce.",
+    "cta_primary": "Explorar nuestros servicios",
+    "cta_secondary": "Escríbenos por WhatsApp"
+  },
+  "pillars": {
+    "eyebrow": "Nuestros cuatro pilares",
+    "headline": "Un ecosistema construido para ti.",
+    "body": "Cada empresa nació para responder a una necesidad real de nuestra comunidad. Juntas, forman el apoyo más completo que un latino puede encontrar en Carolina del Sur."
+  },
+  "impact": {
+    "eyebrow": "13 años de impacto real",
+    "headline": "Los números que importan.",
+    "body": "Cada cifra representa una familia apoyada, un negocio lanzado, una vida cambiada."
+  },
+  "hu_band": {
+    "text": "Cada préstamo que cerramos, cada póliza que vendemos, cada contrato que firmamos — una parte va directamente a Hispanics United. No pagas más. No haces donaciones. Solo eliges con conciencia.",
+    "cta": "Conoce Hispanics United"
+  },
+  "reviews": {
+    "eyebrow": "Lo que dice nuestra comunidad",
+    "headline": "Más de 200 reseñas reales.",
+    "cta": "Ver todas las reseñas"
+  },
+  "events": {
+    "eyebrow": "Próximos eventos",
+    "headline": "Tu lugar en la comunidad.",
+    "body": "Talleres, eventos de salud, networking y más — abiertos a toda la comunidad, sin costo.",
+    "cta": "Ver calendario completo"
+  },
+  "blog": {
+    "eyebrow": "Recursos y noticias",
+    "headline": "Contenido hecho para ti.",
+    "cta": "Ver todos los artículos",
+    "subscribe": "Suscribirse al blog"
+  },
+  "shows": {
+    "eyebrow": "HC Business & Media",
+    "headline": "Programas que informan, inspiran y elevan.",
+    "cta": "Ver todos los programas"
+  },
+  "locations": {
+    "eyebrow": "Estamos cerca de ti",
+    "headline": "Seis oficinas en Upstate SC.",
+    "body": "Atendemos en tu idioma, en persona, en la sucursal más cercana.",
+    "cta": "Ver todas las ubicaciones"
+  }
+}

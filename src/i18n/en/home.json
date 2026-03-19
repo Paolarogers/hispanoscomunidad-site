@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "eyebrow": "Hispanos Comunidad · Greenville, SC",
+    "headline_1": "We don't want to sell you anything.",
+    "headline_2": "We want you to feel it.",
+    "body": "We are the most complete organization for Latino families and entrepreneurs in Upstate South Carolina. Loans, insurance, technology, education, health, and community — all in one place, backed by a team that knows you.",
+    "cta_primary": "Explore our services",
+    "cta_secondary": "Message us on WhatsApp"
+  },
+  "pillars": {
+    "eyebrow": "Our four pillars",
+    "headline": "An ecosystem built for you.",
+    "body": "Each company was born to answer a real need in our community. Together, they form the most complete support system a Latino can find in South Carolina."
+  },
+  "impact": {
+    "eyebrow": "13 years of real impact",
+    "headline": "The numbers that matter.",
+    "body": "Every figure represents a family supported, a business launched, a life changed."
+  },
+  "hu_band": {
+    "text": "Every loan we close, every policy we sell, every contract we sign — a portion goes directly to Hispanics United. You don't pay more. You don't make a donation. You simply choose with intention.",
+    "cta": "Learn about Hispanics United"
+  },
+  "reviews": {
+    "eyebrow": "What our community says",
+    "headline": "Over 200 real reviews.",
+    "cta": "See all reviews"
+  },
+  "events": {
+    "eyebrow": "Upcoming events",
+    "headline": "Your place in the community.",
+    "body": "Workshops, health events, networking and more — open to the entire community, at no cost.",
+    "cta": "View full calendar"
+  },
+  "blog": {
+    "eyebrow": "Resources and news",
+    "headline": "Content made for you.",
+    "cta": "View all articles",
+    "subscribe": "Subscribe to the blog"
+  },
+  "shows": {
+    "eyebrow": "HC Business & Media",
+    "headline": "Programs that inform, inspire, and elevate.",
+    "cta": "View all shows"
+  },
+  "locations": {
+    "eyebrow": "We are close to you",
+    "headline": "Six offices in Upstate SC.",
+    "body": "We serve you in your language, in person, at the nearest branch.",
+    "cta": "View all locations"
+  }
+}

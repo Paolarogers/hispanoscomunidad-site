@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "servicios": "Servicios",
+    "comunidad": "Comunidad",
+    "media": "HC Business & Media",
+    "eventos": "Eventos",
+    "blog": "Blog",
+    "contacto": "Contáctanos",
+    "lang_toggle": "English",
+    "cta": "¡Quiero empezar!"
+  },
+  "footer": {
+    "tagline": "Más que servicios, somos comunidad.",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "address_label": "Sede Principal",
+    "phone_label": "Teléfono",
+    "email_label": "Correo",
+    "funded_by": "Hispanos Comunidad es fundada y sostenida por Bonanza Quick Loans, Zivo Insurance y HC Business & Media.",
+    "hu_note": "Hispanics United of SC es financiada por cada transacción de sus empresas hermanas."
+  },
+  "whatsapp": {
+    "label": "Escríbenos",
+    "tooltip": "Estamos en línea · Respondemos rápido"
+  },
+  "cta": {
+    "apply_loan": "Solicitar préstamo",
+    "get_quote": "Obtener cotización",
+    "schedule_call": "Agendar llamada",
+    "learn_more": "Saber más",
+    "contact_us": "Contáctanos",
+    "rsvp": "Reservar lugar",
+    "subscribe": "Suscribirme",
+    "see_all": "Ver todo",
+    "back": "Volver"
+  },
+  "trust": {
+    "no_ssn": "Sin seguro social",
+    "in_spanish": "100% en español",
+    "fast": "Respuesta en 24h",
+    "free": "Sin costo",
+    "confidential": "Información confidencial"
+  }
+}
