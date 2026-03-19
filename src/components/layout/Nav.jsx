@@ -154,7 +154,7 @@ export default function Nav() {
           gap: var(--space-md);
         }
         .nav__logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-        .nav__logo-img { height: 36px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+        .nav__logo-img { height: 36px; width: auto; object-fit: contain; filter: brightness(0) invert(1); max-height: 40px; width: auto; }
         .nav__logo-fallback { display: flex; align-items: center; gap: 8px; }
         .nav__logo-hc {
           font-family: var(--font-heading);
