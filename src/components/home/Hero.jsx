@@ -7,18 +7,28 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      {/* Background gradient — no photo to interfere */}
-      <div className="hero__bg"/>
+      {/* Family photo as full background */}
+      <div className="hero__bg">
+        <img
+          src="/images/hero/hc-hero-family.png"
+          alt=""
+          className="hero__family-bg"
+          aria-hidden="true"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div className="hero__overlay"/>
+      </div>
 
       <div className="hero__content container">
         <div className="hero__text">
 
           <div className="hero__eyebrow-wrap">
             <img
-              src="/images/logos/hc-logo-seal.png"
-              alt="HC Servicios Esenciales"
+              src="/images/logos/hc-logo-seal-transparent.png"
+              alt="HC"
               className="hero__seal"
-              width="48" height="48"
+              width="56" height="56"
               onError={e => { e.target.style.display = 'none'; }}
             />
             <span className="eyebrow hero__eyebrow">
@@ -27,13 +37,8 @@ export default function Hero() {
           </div>
 
           <h1 className="hero__headline">
-            {text(
-              'Todo lo que tu familia\nnecesita para prosperar.',
-              'Everything your family\nneeds to thrive.'
-            ).split('\n').map((line, i) => (
-              <span key={i}>{line}{i === 0 && <br/>}</span>
-            ))}
-            <br/>
+            {text('Todo lo que tu familia', 'Everything your family')}<br/>
+            {text('necesita para prosperar.', 'needs to thrive.')}<br/>
             <em>{text('En un solo lugar.', 'In one place.')}</em>
           </h1>
 
@@ -43,21 +48,26 @@ export default function Hero() {
 
           <p className="hero__body">
             {text(
-              'Préstamos, seguros, educación empresarial, y tecnología — sin barreras de idioma, sin discriminación por documentación. El ecosistema completo para que tu familia y tu negocio crezcan en Upstate South Carolina.',
-              'Loans, insurance, business education, and technology — without language barriers, without documentation discrimination. The complete ecosystem for your family and business to grow in Upstate South Carolina.'
+              'Préstamos, seguros, educación empresarial, y tecnología — sin barreras de idioma, sin discriminación por documentación.',
+              'Loans, insurance, business education, and technology — without language barriers, without documentation discrimination.'
             )}
           </p>
 
+          {/* Pillar pills with real logos */}
           <div className="hero__pillars">
             {[
-              { path: '/bonanza', label_es: 'Préstamos',  label_en: 'Loans',      color: '#e2af30', icon: '💰' },
-              { path: '/zivo',    label_es: 'Seguros',    label_en: 'Insurance',  color: '#017640', icon: '🛡️' },
-              { path: '/media',   label_es: 'Negocios',   label_en: 'Business',   color: '#1f4268', icon: '📱' },
-              { path: '/unidos',  label_es: 'Comunidad',  label_en: 'Community',  color: '#017640', icon: '🤝' },
+              { path: '/bonanza', label_es: 'Préstamos',  label_en: 'Loans',     color: '#1a3568', logo: '/images/logos/bonanza/bql-transparent.png' },
+              { path: '/zivo',    label_es: 'Seguros',    label_en: 'Insurance', color: '#00477b', logo: '/images/logos/zivo/zivo-transparent.png' },
+              { path: '/media',   label_es: 'Negocios',   label_en: 'Business',  color: '#1f4268', logo: null },
+              { path: '/unidos',  label_es: 'Comunidad',  label_en: 'Community', color: '#017640', logo: null },
             ].map((p, i) => (
-              <Link key={i} to={p.path} className="hero__pillar" style={{ '--pillar-color': p.color }}>
-                <span className="hero__pillar-icon">{p.icon}</span>
-                <span className="hero__pillar-label">{lang === 'es' ? p.label_es : p.label_en}</span>
+              <Link key={i} to={p.path} className="hero__pillar" style={{ '--pillar-color': p.color, background: p.color }}>
+                {p.logo ? (
+                  <img src={p.logo} alt={p.label_es} className="hero__pillar-logo"
+                    onError={e => { e.target.style.display = 'none'; }}/>
+                ) : (
+                  <span className="hero__pillar-label">{lang === 'es' ? p.label_es : p.label_en}</span>
+                )}
               </Link>
             ))}
           </div>
@@ -88,19 +98,6 @@ export default function Hero() {
             ))}
           </div>
         </div>
-
-        {/* Family photo — right column, large */}
-        <div className="hero__photo-col">
-          <img
-            src="/images/hero/hc-hero-family.png"
-            alt="Familia latina — Hispanos Comunidad Greenville SC"
-            className="hero__family"
-            width="700" height="600"
-            loading="eager"
-            fetchpriority="high"
-            onError={e => { e.target.style.display = 'none'; }}
-          />
-        </div>
       </div>
 
       <style>{`
@@ -111,26 +108,44 @@ export default function Hero() {
           align-items: center;
           padding-top: var(--nav-height);
           overflow: hidden;
-          background: linear-gradient(135deg, #0d1e30 0%, #1f4268 55%, #163355 100%);
         }
 
         .hero__bg {
           position: absolute;
           inset: 0;
-          background: radial-gradient(ellipse at 70% 50%, rgba(226,175,48,0.08) 0%, transparent 60%);
-          pointer-events: none;
+          background: linear-gradient(135deg, #0d1e30 0%, #1f4268 100%);
+        }
+        .hero__family-bg {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          height: 100%;
+          width: 55%;
+          object-fit: cover;
+          object-position: center top;
+        }
+        .hero__overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            90deg,
+            rgba(13,30,48,0.98) 0%,
+            rgba(13,30,48,0.92) 35%,
+            rgba(13,30,48,0.65) 60%,
+            rgba(13,30,48,0.15) 100%
+          );
         }
 
         .hero__content {
           position: relative;
           z-index: 1;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: var(--space-lg);
-          align-items: center;
+          grid-template-columns: 1fr;
+          max-width: 680px;
           padding-top: var(--space-xl);
           padding-bottom: var(--space-xl);
           min-height: calc(100vh - var(--nav-height));
+          align-items: center;
         }
 
         .hero__eyebrow-wrap {
@@ -140,12 +155,14 @@ export default function Hero() {
           margin-bottom: var(--space-md);
         }
         .hero__seal {
-          width: 44px;
-          height: 44px;
+          width: 52px;
+          height: 52px;
           object-fit: contain;
           border-radius: 50%;
+          background: white;
+          padding: 4px;
         }
-        .hero__eyebrow { color: #e2af30; margin-bottom: 0; }
+        .hero__eyebrow { color: #e2af30; margin-bottom: 0; font-size: 0.78rem; }
 
         .hero__headline {
           font-family: var(--font-heading);
@@ -164,11 +181,11 @@ export default function Hero() {
 
         .hero__tagline {
           font-family: var(--font-heading);
-          font-size: 0.65rem;
+          font-size: 0.62rem;
           font-weight: 600;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.45);
+          color: rgba(255,255,255,0.4);
           margin-bottom: var(--space-md);
         }
 
@@ -189,26 +206,30 @@ export default function Hero() {
         .hero__pillar {
           display: flex;
           align-items: center;
-          gap: 8px;
-          padding: 10px 16px;
-          background: rgba(255,255,255,0.06);
-          border: 1px solid rgba(255,255,255,0.1);
-          border-bottom: 2px solid var(--pillar-color);
+          justify-content: center;
+          padding: 8px 14px;
           border-radius: var(--radius-md);
           text-decoration: none;
-          font-family: var(--font-heading);
-          font-size: 0.7rem;
-          font-weight: 500;
-          color: rgba(255,255,255,0.85);
-          letter-spacing: 0.05em;
+          border: 1px solid rgba(255,255,255,0.15);
           transition: all var(--duration) var(--ease);
+          min-height: 44px;
         }
-        .hero__pillar:hover {
-          background: rgba(255,255,255,0.12);
+        .hero__pillar:hover { transform: translateY(-2px); opacity: 0.85; }
+        .hero__pillar-logo {
+          height: 28px;
+          width: auto;
+          max-width: 140px;
+          object-fit: contain;
+          filter: brightness(0) invert(1);
+        }
+        .hero__pillar-label {
+          font-family: var(--font-heading);
+          font-size: 0.68rem;
+          font-weight: 600;
           color: white;
-          transform: translateY(-2px);
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
         }
-        .hero__pillar-icon { font-size: 1rem; }
 
         .hero__actions {
           display: flex;
@@ -250,26 +271,9 @@ export default function Hero() {
           color: rgba(255,255,255,0.5);
         }
 
-        /* Right column — big family photo */
-        .hero__photo-col {
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          height: 100%;
-          padding-bottom: 0;
-        }
-        .hero__family {
-          width: 100%;
-          max-width: 640px;
-          height: auto;
-          object-fit: contain;
-          object-position: bottom center;
-          filter: drop-shadow(-20px 0 60px rgba(226,175,48,0.12));
-        }
-
-        @media (max-width: 900px) {
-          .hero__content { grid-template-columns: 1fr; }
-          .hero__photo-col { display: none; }
+        @media (max-width: 768px) {
+          .hero__family-bg { width: 100%; opacity: 0.3; }
+          .hero__content { max-width: 100%; }
         }
       `}</style>
     </section>

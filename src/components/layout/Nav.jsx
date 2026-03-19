@@ -43,7 +43,7 @@ export default function Nav() {
         {/* Logo */}
         <Link to="/" className="nav__logo" aria-label="Hispanos Comunidad — inicio">
           <img
-            src="/images/logos/hc-logo-horizontal.png"
+            src="/images/logos/hc-logo-horizontal-transparent.png"
             alt="Hispanos Comunidad"
             className="nav__logo-img"
             width="160" height="40"
@@ -154,7 +154,7 @@ export default function Nav() {
           gap: var(--space-md);
         }
         .nav__logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-        .nav__logo-img { height: 36px; width: auto; object-fit: contain; filter: brightness(0) invert(1); max-height: 40px; width: auto; }
+        .nav__logo-img { height: 36px; width: auto; object-fit: contain; height: 38px; width: auto; background: white; border-radius: 6px; padding: 4px 10px; object-fit: contain; }
         .nav__logo-fallback { display: flex; align-items: center; gap: 8px; }
         .nav__logo-hc {
           font-family: var(--font-heading);
