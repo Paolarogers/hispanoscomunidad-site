@@ -32,10 +32,15 @@
   --media-mid:      #2d5f8f;
 
   /* ── Pillar: Unidos ── */
-  --unidos-green:   #017640;
-  --unidos-light:   #e8f5ea;
-  --unidos-dark:    #00477b;
-  --unidos-mid:     #1f5229;
+  --unidos-blue:    #015371;   /* primary teal-blue */
+  --unidos-red:     #ea2b1f;   /* accent red */
+  --unidos-gold:    #f5c01a;   /* accent gold */
+  --unidos-green:   #228556;   /* accent green */
+  --unidos-navy:    #00234c;   /* deep navy */
+  --unidos-cobalt:  #10428c;   /* cobalt blue */
+  --unidos-light:   #e8f4f8;
+  --unidos-dark:    #00234c;
+  --unidos-mid:     #228556;
 
   /* ── Typography ── */
   --font-heading:   'Unbounded', sans-serif;
