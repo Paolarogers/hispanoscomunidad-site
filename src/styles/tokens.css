@@ -16,14 +16,14 @@
   /* ── Pillar: Bonanza ── */
   --bonanza-gold:   #e2af30;
   --bonanza-light:  #fdf5dc;
-  --bonanza-dark:   #1a2c0a;
+  --bonanza-dark:   #1a3568;
   --bonanza-mid:    #b8893a;
 
   /* ── Pillar: Zivo ── */
-  --zivo-teal:      #2e713b;
-  --zivo-light:     #e8f5ea;
-  --zivo-dark:      #0d2e14;
-  --zivo-mid:       #1f5229;
+  --zivo-teal:      #017640;
+  --zivo-light:     #e8f5ed;
+  --zivo-dark:      #00477b;
+  --zivo-mid:       #ffb24e;
 
   /* ── Pillar: HC Business & Media ── */
   --media-lilac:    #1f4268;
@@ -32,9 +32,9 @@
   --media-mid:      #2d5f8f;
 
   /* ── Pillar: Unidos ── */
-  --unidos-green:   #2e713b;
+  --unidos-green:   #017640;
   --unidos-light:   #e8f5ea;
-  --unidos-dark:    #0d2e14;
+  --unidos-dark:    #00477b;
   --unidos-mid:     #1f5229;
 
   /* ── Typography ── */
