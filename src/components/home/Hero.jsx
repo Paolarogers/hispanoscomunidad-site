@@ -118,21 +118,24 @@ export default function Hero() {
         .hero__family-bg {
           position: absolute;
           right: 0;
-          bottom: 0;
-          height: 100%;
-          width: 55%;
-          object-fit: cover;
-          object-position: center top;
+          top: 50%;
+          transform: translateY(-50%);
+          height: auto;
+          width: 58%;
+          max-height: 100%;
+          object-fit: contain;
+          object-position: right center;
         }
         .hero__overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             90deg,
-            rgba(13,30,48,0.98) 0%,
-            rgba(13,30,48,0.92) 35%,
-            rgba(13,30,48,0.65) 60%,
-            rgba(13,30,48,0.15) 100%
+            rgba(13,30,48,1.0)  0%,
+            rgba(13,30,48,0.97) 30%,
+            rgba(13,30,48,0.80) 50%,
+            rgba(13,30,48,0.30) 70%,
+            rgba(13,30,48,0.05) 100%
           );
         }
 
