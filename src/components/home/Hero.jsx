@@ -95,8 +95,8 @@ export default function Hero() {
 
         <div className="hero__avatar-col">
           <img
-            src="/images/team/avatars/paola-green-skirt.png"
-            alt="Paola Rogers — Fundadora Hispanos Comunidad"
+            src="/images/hero/hc-hero-family.png"
+            alt="Familia latina — Hispanos Comunidad"
             className="hero__paola"
             width="340" height="420"
             loading="eager"
