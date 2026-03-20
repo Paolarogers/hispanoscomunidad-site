@@ -219,7 +219,7 @@ export default function Hero() {
         .hero__cards-strip {
           position: relative;
           z-index: 3;
-          margin-top: -180px;
+          margin-top: -220px;
           background: transparent;
           padding: 0 max(24px, calc((100vw - 1440px) / 2 + 24px)) 24px;
         }

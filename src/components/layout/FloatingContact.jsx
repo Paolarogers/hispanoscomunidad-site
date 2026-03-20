@@ -80,7 +80,7 @@ export default function FloatingContact() {
       <style>{`
         .float-chat {
           position: fixed;
-          bottom: 28px;
+          bottom: 72px;
           left: 24px;
           right: auto;
           z-index: 90;
