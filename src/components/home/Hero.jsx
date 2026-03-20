@@ -113,21 +113,33 @@ export default function Hero() {
           </Link>
         </div>
 
-        <div className="hero__trust">
-          {[
-            { es: '20,000+ préstamos', en: '20,000+ loans' },
-            { es: '5,000+ familias aseguradas', en: '5,000+ insured families' },
-            { es: '13 años en SC', en: '13 years in SC' },
-            { es: '100% en español', en: '100% in Spanish' },
-          ].map((t, i) => (
-            <span key={i} className="hero__trust-item">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <circle cx="6" cy="6" r="6" fill="#e2af30" opacity="0.3"/>
-                <path d="M3 6l2 2 4-4" stroke="#e2af30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              {lang === 'es' ? t.es : t.en}
-            </span>
-          ))}
+        <div className="hero__bottom">
+          <div className="hero__trust">
+            {[
+              { es: '20,000+ préstamos', en: '20,000+ loans' },
+              { es: '5,000+ familias aseguradas', en: '5,000+ insured families' },
+              { es: '13 años en SC', en: '13 years in SC' },
+              { es: '100% en español', en: '100% in Spanish' },
+            ].map((t, i) => (
+              <span key={i} className="hero__trust-item">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <circle cx="6" cy="6" r="6" fill="#e2af30" opacity="0.3"/>
+                  <path d="M3 6l2 2 4-4" stroke="#e2af30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                {lang === 'es' ? t.es : t.en}
+              </span>
+            ))}
+          </div>
+          <button className="hero__chat-inline" onClick={() => {
+            if (window.$zoho?.salesiq?.floatwindow) {
+              window.$zoho.salesiq.floatwindow.visible('show');
+            }
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4 11H8a1 1 0 010-2h8a1 1 0 010 2zm-2-3H8a1 1 0 010-2h6a1 1 0 010 2z"/>
+            </svg>
+            {text('¿Necesitas ayuda?', 'Need help?')}
+          </button>
         </div>
 
       </div>
@@ -178,7 +190,7 @@ export default function Hero() {
           justify-content: center;
           padding: var(--space-xl) 48px var(--space-xl) max(32px, calc((100vw - 1280px) / 2 + 32px));
           min-height: calc(100vh - var(--nav-height));
-          width: min(52%, 680px);
+          width: min(58%, 760px);
         }
 
         /* Eyebrow */
@@ -239,18 +251,19 @@ export default function Hero() {
           max-width: 420px;
         }
 
-        /* ── Brand cards ── */
+        /* ── Brand cards — full width of content column ── */
         .hero__brands {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 8px;
-          margin-bottom: 28px;
+          gap: 10px;
+          margin-bottom: 24px;
+          width: 100%;
         }
         .hero__brand-card {
           display: flex;
           flex-direction: column;
-          gap: 8px;
-          padding: 12px 10px 14px;
+          gap: 10px;
+          padding: 14px 12px 16px;
           background: rgba(255,255,255,0.10);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
@@ -264,7 +277,7 @@ export default function Hero() {
           background: rgba(255,255,255,0.16);
         }
         .hero__brand-logo-wrap {
-          height: 34px;
+          height: 32px;
           display: flex;
           align-items: center;
         }
@@ -276,7 +289,7 @@ export default function Hero() {
           object-position: left center;
         }
         .hero__brand-desc {
-          font-size: 0.61rem;
+          font-size: 0.62rem;
           color: rgba(255,255,255,0.68);
           line-height: 1.55;
           margin: 0;
@@ -286,8 +299,9 @@ export default function Hero() {
         .hero__actions {
           display: flex;
           gap: 12px;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
           flex-wrap: wrap;
+          align-items: center;
         }
         .hero__btn-primary {
           display: inline-flex;
@@ -298,10 +312,11 @@ export default function Hero() {
           font-size: 0.72rem;
           letter-spacing: 0.07em;
           text-transform: uppercase;
-          padding: 13px 26px;
+          padding: 14px 28px;
           border-radius: 8px;
           text-decoration: none;
           transition: background 0.2s;
+          white-space: nowrap;
         }
         .hero__btn-primary:hover { background: #f0c040; }
         .hero__btn-outline {
@@ -309,20 +324,30 @@ export default function Hero() {
           align-items: center;
           border: 1.5px solid rgba(255,255,255,0.28);
           color: #fdfaf5;
-          font-size: 0.8rem;
-          padding: 13px 26px;
+          font-size: 0.82rem;
+          font-weight: 600;
+          padding: 13px 28px;
           border-radius: 8px;
           text-decoration: none;
           transition: background 0.2s;
+          white-space: nowrap;
         }
         .hero__btn-outline:hover { background: rgba(255,255,255,0.08); }
 
-        /* ── Trust bar — single row ── */
+        /* ── Bottom row: trust items + chat button inline ── */
+        .hero__bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          flex-wrap: nowrap;
+        }
         .hero__trust {
           display: flex;
-          gap: 18px;
+          gap: 16px;
           flex-wrap: nowrap;
-          overflow-x: auto;
+          align-items: center;
+          overflow: hidden;
         }
         .hero__trust-item {
           display: flex;
@@ -334,6 +359,25 @@ export default function Hero() {
           white-space: nowrap;
           flex-shrink: 0;
         }
+        .hero__chat-inline {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(255,255,255,0.10);
+          border: 1px solid rgba(255,255,255,0.18);
+          color: rgba(255,255,255,0.7);
+          font-size: 0.72rem;
+          font-weight: 600;
+          padding: 8px 14px;
+          border-radius: 50px;
+          cursor: pointer;
+          white-space: nowrap;
+          flex-shrink: 0;
+          text-decoration: none;
+          transition: background 0.2s;
+          backdrop-filter: blur(6px);
+        }
+        .hero__chat-inline:hover { background: rgba(255,255,255,0.18); color: white; }
 
         /* ── Mobile ── */
         @media (max-width: 900px) {
@@ -341,10 +385,11 @@ export default function Hero() {
           .hero__family-bg { opacity: 0.18; width: 100%; object-fit: cover; }
           .hero__overlay { background: rgba(13,30,48,0.9); }
           .hero__brands { grid-template-columns: repeat(2, 1fr); }
+          .hero__bottom { flex-wrap: wrap; gap: 12px; }
+          .hero__trust { overflow-x: auto; }
         }
         @media (max-width: 480px) {
           .hero__brands { grid-template-columns: 1fr 1fr; }
-          .hero__trust { flex-wrap: wrap; gap: 10px; }
         }
       `}</style>
     </section>
