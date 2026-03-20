@@ -123,9 +123,10 @@ export default function Hero() {
           background: linear-gradient(
             90deg,
             rgba(13,30,48,1.0)  0%,
-            rgba(13,30,48,0.98) 40%,
-            rgba(13,30,48,0.55) 58%,
-            rgba(13,30,48,0.0)  72%
+            rgba(13,30,48,1.0)  35%,
+            rgba(13,30,48,0.75) 50%,
+            rgba(13,30,48,0.20) 65%,
+            rgba(13,30,48,0.0)  78%
           );
           z-index: 1;
         }
@@ -134,10 +135,10 @@ export default function Hero() {
           position: absolute;
           top: 0;
           right: 0;
-          width: 55%;
+          width: 75%;
           height: 100%;
           object-fit: cover;
-          object-position: 25% center;
+          object-position: 15% center;
         }
 
         .hero__content {
