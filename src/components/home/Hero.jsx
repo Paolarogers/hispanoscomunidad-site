@@ -252,14 +252,19 @@ export default function Hero() {
           height: 60px;
           display: flex;
           align-items: center;
-          justify-content: flex-start;
+          justify-content: center;
+          width: 100%;
+          padding: 4px 8px;
         }
         .hero__card-logo {
-          height: 100%;
-          width: auto;
+          max-height: 100%;
           max-width: 100%;
+          width: auto;
+          height: auto;
           object-fit: contain;
-          object-position: left center;
+          object-position: center center;
+          display: block;
+          margin: 0 auto;
         }
         .hero__card-desc {
           font-size: 0.72rem;
@@ -268,6 +273,7 @@ export default function Hero() {
           margin: 0;
           font-weight: 500;
           flex: 1;
+          text-align: center;
         }
         .hero__card-cta {
           font-size: 0.62rem;
@@ -277,6 +283,7 @@ export default function Hero() {
           color: #1f4268;
           opacity: 0.5;
           transition: opacity 0.2s;
+          text-align: center;
         }
         .hero__card:hover .hero__card-cta { opacity: 1; }
 
