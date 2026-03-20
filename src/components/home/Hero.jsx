@@ -91,38 +91,47 @@ export default function Hero() {
         </p>
 
         {/* ── Brand cards — straddle the photo/navy line ── */}
-        <div className="hero__brands">
-          {brands.map((b, i) => (
-            <Link key={i} to={b.path} className="hero__brand-card" style={{'--bc': b.color}}>
-              <div className="hero__brand-logo-wrap">
-                <img src={b.logo} alt="" className="hero__brand-logo"
-                  onError={e => { e.target.style.display='none'; }} />
-              </div>
-              <p className="hero__brand-desc">{lang === 'es' ? b.desc_es : b.desc_en}</p>
+        <div className="hero__lower">
+          <div className="hero__brands">
+            {brands.map((b, i) => (
+              <Link key={i} to={b.path} className="hero__brand-card" style={{'--bc': b.color}}>
+                <div className="hero__brand-logo-wrap">
+                  <img src={b.logo} alt="" className="hero__brand-logo"
+                    onError={e => { e.target.style.display='none'; }} />
+                </div>
+                <p className="hero__brand-desc">{lang === 'es' ? b.desc_es : b.desc_en}</p>
+              </Link>
+            ))}
+          </div>
+
+          {/* ── CTA + trust ── */}
+          <div className="hero__cta-row">
+            <a href={WHATSAPP.general} target="_blank" rel="noopener noreferrer"
+              className="hero__btn-primary">
+              {text('Hablar con nosotros', 'Talk to us')}
+            </a>
+            <Link to="/nosotros" className="hero__btn-outline">
+              {text('Conocer al equipo', 'Meet the team')}
             </Link>
-          ))}
-        </div>
+          </div>
 
-        {/* ── CTA + trust ── */}
-        <div className="hero__cta-row">
-          <button className="hero__btn-primary" onClick={openChat}>
-            {text('Hablemos — estamos aquí para ti', 'Talk to us — we\'re here for you')}
-          </button>
-          <Link to="/nosotros" className="hero__btn-outline">
-            {text('Conocer al equipo', 'Meet the team')}
-          </Link>
-        </div>
-
-        <div className="hero__trust-row">
-          {trust.map((t, i) => (
-            <span key={i} className="hero__trust-item">
-              <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                <circle cx="6" cy="6" r="6" fill="#e2af30" opacity="0.3"/>
-                <path d="M3 6l2 2 4-4" stroke="#e2af30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <div className="hero__trust-row">
+            {trust.map((t, i) => (
+              <span key={i} className="hero__trust-item">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                  <circle cx="6" cy="6" r="6" fill="#e2af30" opacity="0.3"/>
+                  <path d="M3 6l2 2 4-4" stroke="#e2af30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                {lang === 'es' ? t.es : t.en}
+              </span>
+            ))}
+            <button className="hero__chat-btn" onClick={openChat}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4 11H8a1 1 0 010-2h8a1 1 0 010 2zm-2-3H8a1 1 0 010-2h6a1 1 0 010 2z"/>
               </svg>
-              {lang === 'es' ? t.es : t.en}
-            </span>
-          ))}
+              {text('¿Necesitas ayuda?', 'Need help?')}
+            </button>
+          </div>
         </div>
 
       </div>
@@ -174,11 +183,10 @@ export default function Hero() {
         .hero__content {
           position: relative; z-index: 2;
           display: flex; flex-direction: column;
-          justify-content: center;
-          gap: 20px;
-          padding: 48px 48px 40px max(32px, calc((100vw - 1280px) / 2 + 32px));
-          min-height: calc(100vh - var(--nav-height));
-          max-width: 760px;
+          justify-content: space-between;
+          padding: 40px 48px 36px max(32px, calc((100vw - 1280px) / 2 + 32px));
+          height: calc(100vh - var(--nav-height));
+          max-width: 720px;
         }
 
         /* Eyebrow */
@@ -218,6 +226,9 @@ export default function Hero() {
           font-size: 0.88rem; color: rgba(255,255,255,0.62);
           line-height: 1.8; max-width: 440px; margin: 0;
         }
+
+        /* lower group: cards + CTAs + trust */
+        .hero__lower { display: flex; flex-direction: column; gap: 16px; }
 
         /* ── Brand cards ── straddle the line ── */
         .hero__brands {
@@ -287,7 +298,7 @@ export default function Hero() {
         /* Trust row */
         .hero__trust-row {
           display: flex; align-items: center;
-          gap: 18px; flex-wrap: nowrap; overflow: hidden;
+          gap: 16px; flex-wrap: nowrap; overflow: hidden;
         }
         .hero__trust-item {
           display: flex; align-items: center; gap: 5px;
@@ -295,6 +306,14 @@ export default function Hero() {
           color: rgba(255,255,255,0.4);
           white-space: nowrap; flex-shrink: 0;
         }
+        .hero__chat-btn {
+          margin-left: auto; flex-shrink: 0;
+          display: inline-flex; align-items: center; gap: 6px;
+          background: none; border: none; cursor: pointer;
+          color: rgba(255,255,255,0.4); font-size: 0.68rem; font-weight: 600;
+          white-space: nowrap; padding: 0; transition: color 0.2s;
+        }
+        .hero__chat-btn:hover { color: #e2af30; }
 
         @media (max-width: 900px) {
           .hero__content { max-width: 100%; padding: 40px 24px; }
