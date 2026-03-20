@@ -227,11 +227,11 @@ export default function Hero() {
         }
         .hero__btn-outline:hover { background: rgba(255,255,255,0.08); }
 
-        /* ── CARDS STRIP — overlaps photo by 40% of card height ── */
+        /* ── CARDS STRIP — overlaps photo, no seam ── */
         .hero__cards-strip {
           position: relative;
           z-index: 3;
-          margin-top: -72px; /* pulls strip up so 40% overlaps the photo area */
+          margin-top: -130px;
           background: transparent;
           padding: 0 max(24px, calc((100vw - 1440px) / 2 + 24px)) 24px;
         }
