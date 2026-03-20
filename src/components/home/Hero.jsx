@@ -22,14 +22,14 @@ export default function Hero() {
     },
     {
       path: '/media',
-      logo: '/images/logos/media/media-logo-horizontal.png',
+      logo: '/images/logos/media/media-logo-cropped.png',
       color: '#132f5e',
       desc_es: 'Marketing, tecnología, consultoría y educación empresarial.',
       desc_en: 'Marketing, tech, consulting & business education.',
     },
     {
       path: '/unidos',
-      logo: '/images/logos/unidos/unidos-logo-horizontal.png',
+      logo: '/images/logos/unidos/unidos-logo-cropped.png',
       color: '#015371',
       desc_es: 'Organización sin fines de lucro. Recursos para familias latinas.',
       desc_en: 'Nonprofit supporting Latino families in SC.',
@@ -186,7 +186,7 @@ export default function Hero() {
           justify-content: space-between;
           padding: 40px 48px 36px max(32px, calc((100vw - 1280px) / 2 + 32px));
           height: calc(100vh - var(--nav-height));
-          max-width: 720px;
+          width: min(58%, 760px);
         }
 
         /* Eyebrow */
@@ -257,7 +257,7 @@ export default function Hero() {
           box-shadow: 0 10px 32px rgba(0,0,0,0.45);
         }
         .hero__brand-logo-wrap {
-          height: 34px; display: flex; align-items: center;
+          height: 42px; display: flex; align-items: center;
         }
         .hero__brand-logo {
           height: 100%; width: auto; max-width: 100%;
