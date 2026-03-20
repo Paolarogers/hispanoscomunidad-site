@@ -24,7 +24,7 @@ export default function Hero() {
     },
     {
       path: '/media',
-      logo: '/images/logos/media/media-logo.png',
+      logo: '/images/logos/media/media-logo-horizontal.png',
       label_es: 'Negocios',
       label_en: 'Business',
       desc_es: 'Marketing, tecnología, consultoría y educación empresarial.',
@@ -32,7 +32,7 @@ export default function Hero() {
     },
     {
       path: '/unidos',
-      logo: '/images/logos/unidos/unidos-logo.png',
+      logo: '/images/logos/unidos/unidos-logo-horizontal.png',
       label_es: 'Comunidad',
       label_en: 'Community',
       desc_es: 'Organización sin fines de lucro. Recursos para familias latinas.',
@@ -264,7 +264,7 @@ export default function Hero() {
           background: rgba(255,255,255,0.16);
         }
         .hero__brand-logo-wrap {
-          height: 30px;
+          height: 34px;
           display: flex;
           align-items: center;
         }
