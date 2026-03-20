@@ -249,7 +249,7 @@ export default function Hero() {
         }
         /* Logo area — identical height for all cards */
         .hero__card-logo-wrap {
-          height: 52px;
+          height: 60px;
           display: flex;
           align-items: center;
           justify-content: flex-start;
