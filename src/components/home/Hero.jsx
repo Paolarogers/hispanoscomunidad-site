@@ -12,12 +12,6 @@ export default function Hero() {
     { path: '/unidos',  logo: '/images/logos/unidos/unidos-card.png',  label_es: 'Comunidad', desc_es: 'Organización sin fines de lucro. Recursos para familias latinas.',         desc_en: 'Nonprofit supporting Latino families in South Carolina.' },
   ];
 
-  const openChat = () => {
-    if (window.$zoho?.salesiq?.floatwindow) {
-      window.$zoho.salesiq.floatwindow.visible('show');
-    }
-  };
-
   return (
     <section className="hero">
 
@@ -103,12 +97,6 @@ export default function Hero() {
               {lang === 'es' ? t.es : t.en}
             </span>
           ))}
-          <button className="hero__chat-btn" onClick={openChat}>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm4 11H8a1 1 0 010-2h8a1 1 0 010 2zm-2-3H8a1 1 0 010-2h6a1 1 0 010 2z"/>
-            </svg>
-            {text('¿Necesitas ayuda?', 'Need help?')}
-          </button>
         </div>
       </div>
 
@@ -231,7 +219,7 @@ export default function Hero() {
         .hero__cards-strip {
           position: relative;
           z-index: 3;
-          margin-top: -130px;
+          margin-top: -180px;
           background: transparent;
           padding: 0 max(24px, calc((100vw - 1440px) / 2 + 24px)) 24px;
         }
