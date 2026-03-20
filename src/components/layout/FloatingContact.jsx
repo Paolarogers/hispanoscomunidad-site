@@ -80,8 +80,9 @@ export default function FloatingContact() {
       <style>{`
         .float-chat {
           position: fixed;
-          bottom: 180px;
-          right: 24px;
+          bottom: 28px;
+          left: 24px;
+          right: auto;
           z-index: 90;
           opacity: 0;
           transform: translateY(20px);
@@ -202,7 +203,7 @@ export default function FloatingContact() {
         .float-chat__wa-btn:hover { background: #1da851; }
 
         @media (max-width: 600px) {
-          .float-chat { bottom: 20px; right: 16px; }
+          .float-chat { bottom: 20px; left: 16px; right: auto; }
           .float-chat__label { display: none; }
           .float-chat__btn { padding: 14px; border-radius: 50%; }
           .float-chat__panel { width: calc(100vw - 32px); }
