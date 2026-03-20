@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useLanguage } from '../../hooks/useLanguage.js';
 
 export default function FloatingContact() {
@@ -22,7 +23,7 @@ export default function FloatingContact() {
     }
   };
 
-  return (
+  return createPortal(
     <div className={`float-chat${visible ? ' float-chat--visible' : ''}`}>
 
       {/* Fallback mini chat panel — shown only when Zoho SalesIQ is not loaded */}
@@ -209,6 +210,7 @@ export default function FloatingContact() {
           .float-chat__panel { width: calc(100vw - 32px); }
         }
       `}</style>
-    </div>
+    </div>,
+    document.body
   );
 }
