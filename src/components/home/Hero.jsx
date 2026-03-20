@@ -8,7 +8,7 @@ export default function Hero() {
   const brands = [
     {
       path: '/bonanza',
-      logo: '/images/logos/bonanza/bql-horizontal.png',
+      logo: '/images/logos/bonanza/bql-horizontal-transparent.png',
       label_es: 'Préstamos',
       label_en: 'Loans',
       desc_es: 'Préstamos personales, sobre título y negocios. Sin SSN.',
@@ -16,7 +16,7 @@ export default function Hero() {
     },
     {
       path: '/zivo',
-      logo: '/images/logos/zivo/zivo-horizontal.png',
+      logo: '/images/logos/zivo/zivo-horizontal-transparent.png',
       label_es: 'Seguros',
       label_en: 'Insurance',
       desc_es: 'Auto, comercial, hogar y vida. Sin número de seguro social.',
@@ -251,7 +251,7 @@ export default function Hero() {
           max-width: 420px;
         }
 
-        /* ── Brand cards — full width of content column ── */
+        /* ── Brand cards — white frosted, colored logos ── */
         .hero__brands {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -264,17 +264,19 @@ export default function Hero() {
           flex-direction: column;
           gap: 10px;
           padding: 14px 12px 16px;
-          background: rgba(255,255,255,0.10);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          border: 1px solid rgba(255,255,255,0.18);
+          background: rgba(255,255,255,0.88);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(255,255,255,0.95);
           border-radius: 10px;
           text-decoration: none;
-          transition: transform 0.2s ease, background 0.2s ease;
+          transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.18);
         }
         .hero__brand-card:hover {
           transform: translateY(-3px);
-          background: rgba(255,255,255,0.16);
+          background: rgba(255,255,255,0.97);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.25);
         }
         .hero__brand-logo-wrap {
           height: 32px;
@@ -287,12 +289,14 @@ export default function Hero() {
           max-width: 100%;
           object-fit: contain;
           object-position: left center;
+          filter: none;
         }
         .hero__brand-desc {
-          font-size: 0.62rem;
-          color: rgba(255,255,255,0.68);
+          font-size: 0.61rem;
+          color: #2b3a52;
           line-height: 1.55;
           margin: 0;
+          font-weight: 500;
         }
 
         /* ── CTA buttons ── */
