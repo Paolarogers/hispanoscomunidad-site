@@ -26,10 +26,14 @@
   --zivo-mid:       #ffb24e;
 
   /* ── Pillar: HC Business & Media ── */
-  --media-lilac:    #1f4268;
-  --media-light:    #e8eef5;
-  --media-dark:     #0d1e30;
-  --media-mid:      #2d5f8f;
+  --media-navy:     #132f5e;   /* primary navy */
+  --media-gold:     #fbcc54;   /* accent gold */
+  --media-red:      #b12d2d;   /* accent red */
+  --media-green:    #377e47;   /* accent green */
+  --media-lilac:    #132f5e;   /* alias → primary navy */
+  --media-light:    #eef1f8;   /* light tint */
+  --media-dark:     #0b1c3a;   /* deep navy */
+  --media-mid:      #1a4080;   /* mid navy */
 
   /* ── Pillar: Unidos ── */
   --unidos-blue:    #015371;   /* primary teal-blue */
