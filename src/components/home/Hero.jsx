@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="hero__overlay"/>
       </div>
 
-      <div className="hero__content container">
+      <div className="hero__content">
         <div className="hero__text">
 
           <div className="hero__eyebrow-wrap">
@@ -104,51 +104,55 @@ export default function Hero() {
         .hero {
           position: relative;
           min-height: 100vh;
-          display: flex;
-          align-items: center;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           padding-top: var(--nav-height);
           overflow: hidden;
+          background: linear-gradient(135deg, #0d1e30 0%, #1a3560 100%);
         }
 
         .hero__bg {
           position: absolute;
           inset: 0;
-          background: linear-gradient(135deg, #0d1e30 0%, #1f4268 100%);
+          pointer-events: none;
         }
-        .hero__family-bg {
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          height: auto;
-          width: 58%;
-          max-height: 100%;
-          object-fit: contain;
-          object-position: right center;
-        }
+
         .hero__overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             90deg,
             rgba(13,30,48,1.0)  0%,
-            rgba(13,30,48,0.97) 30%,
-            rgba(13,30,48,0.80) 50%,
-            rgba(13,30,48,0.30) 70%,
-            rgba(13,30,48,0.05) 100%
+            rgba(13,30,48,0.98) 40%,
+            rgba(13,30,48,0.55) 58%,
+            rgba(13,30,48,0.0)  72%
           );
+          z-index: 1;
+        }
+
+        .hero__family-bg {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 55%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 25% center;
         }
 
         .hero__content {
           position: relative;
-          z-index: 1;
-          display: grid;
-          grid-template-columns: 1fr;
-          max-width: 680px;
+          z-index: 2;
+          grid-column: 1 / 2;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
           padding-top: var(--space-xl);
           padding-bottom: var(--space-xl);
+          padding-right: var(--space-lg);
+          padding-left: max(24px, calc((100vw - 1280px) / 2 + 24px));
           min-height: calc(100vh - var(--nav-height));
-          align-items: center;
+          max-width: 620px;
         }
 
         .hero__eyebrow-wrap {
@@ -275,8 +279,30 @@ export default function Hero() {
         }
 
         @media (max-width: 768px) {
-          .hero__family-bg { width: 100%; opacity: 0.3; }
-          .hero__content { max-width: 100%; }
+          .hero {
+            grid-template-columns: 1fr;
+          }
+          .hero__family-bg {
+            width: 100%;
+            height: 50%;
+            top: auto;
+            bottom: 0;
+            object-position: center top;
+            opacity: 0.35;
+          }
+          .hero__overlay {
+            background: linear-gradient(
+              180deg,
+              rgba(13,30,48,0.95) 50%,
+              rgba(13,30,48,0.7) 100%
+            );
+          }
+          .hero__content {
+            grid-column: 1;
+            max-width: 100%;
+            padding-left: 24px;
+            padding-right: 24px;
+          }
         }
       `}</style>
     </section>
