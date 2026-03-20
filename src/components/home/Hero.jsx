@@ -6,34 +6,10 @@ export default function Hero() {
   const { lang, text } = useLanguage();
 
   const brands = [
-    {
-      path: '/bonanza',
-      logo: '/images/logos/bonanza/bql-horizontal-transparent.png',
-      label_es: 'Préstamos',
-      desc_es: 'Préstamos personales, sobre título y negocios. Sin SSN.',
-      desc_en: 'Personal, title & business loans. No SSN required.',
-    },
-    {
-      path: '/zivo',
-      logo: '/images/logos/zivo/zivo-horizontal-transparent.png',
-      label_es: 'Seguros',
-      desc_es: 'Auto, comercial, hogar y vida. Sin número de seguro social.',
-      desc_en: 'Auto, commercial, home & life. No social security needed.',
-    },
-    {
-      path: '/media',
-      logo: '/images/logos/media/media-logo-cropped.png',
-      label_es: 'Negocios',
-      desc_es: 'Marketing, tecnología, consultoría y educación empresarial.',
-      desc_en: 'Marketing, technology, consulting & business education.',
-    },
-    {
-      path: '/unidos',
-      logo: '/images/logos/unidos/unidos-logo-cropped.png',
-      label_es: 'Comunidad',
-      desc_es: 'Organización sin fines de lucro. Recursos para familias latinas.',
-      desc_en: 'Nonprofit supporting Latino families in South Carolina.',
-    },
+    { path: '/bonanza', logo: '/images/logos/bonanza/bql-card.png',    label_es: 'Préstamos', desc_es: 'Préstamos personales, sobre título y negocios. Sin SSN.',                     desc_en: 'Personal, title & business loans. No SSN required.' },
+    { path: '/zivo',    logo: '/images/logos/zivo/zivo-card.png',      label_es: 'Seguros',   desc_es: 'Auto, comercial, hogar y vida. Sin número de seguro social.',              desc_en: 'Auto, commercial, home & life. No social security needed.' },
+    { path: '/media',   logo: '/images/logos/media/media-card.png',    label_es: 'Negocios',  desc_es: 'Marketing, tecnología, consultoría y educación empresarial.',              desc_en: 'Marketing, technology, consulting & business education.' },
+    { path: '/unidos',  logo: '/images/logos/unidos/unidos-card.png',  label_es: 'Comunidad', desc_es: 'Organización sin fines de lucro. Recursos para familias latinas.',         desc_en: 'Nonprofit supporting Latino families in South Carolina.' },
   ];
 
   const openChat = () => {
@@ -251,15 +227,13 @@ export default function Hero() {
         }
         .hero__btn-outline:hover { background: rgba(255,255,255,0.08); }
 
-        /* ── CARDS STRIP — full viewport width ── */
+        /* ── CARDS STRIP — overlaps photo by 40% of card height ── */
         .hero__cards-strip {
           position: relative;
           z-index: 3;
-          background: rgba(13,30,48,0.6);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border-top: 1px solid rgba(255,255,255,0.1);
-          padding: 20px max(24px, calc((100vw - 1440px) / 2 + 24px));
+          margin-top: -72px; /* pulls strip up so 40% overlaps the photo area */
+          background: transparent;
+          padding: 0 max(24px, calc((100vw - 1440px) / 2 + 24px)) 24px;
         }
         .hero__cards-inner {
           display: grid;
@@ -272,29 +246,32 @@ export default function Hero() {
           display: flex;
           flex-direction: column;
           gap: 10px;
-          padding: 18px 20px 16px;
-          background: rgba(255,255,255,0.92);
+          padding: 20px 20px 16px;
+          background: rgba(255,255,255,0.93);
           border-radius: 12px;
           text-decoration: none;
-          border: 1px solid rgba(255,255,255,0.6);
-          box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+          border: 1px solid rgba(255,255,255,0.7);
+          box-shadow: 0 4px 24px rgba(0,0,0,0.22);
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .hero__card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 10px 32px rgba(0,0,0,0.22);
-          background: rgba(255,255,255,0.98);
+          box-shadow: 0 12px 36px rgba(0,0,0,0.28);
+          background: rgba(255,255,255,0.99);
         }
+        /* Logo area — identical height for all cards */
         .hero__card-logo-wrap {
-          height: 44px;
-          display: flex; align-items: center;
+          height: 52px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
         }
         .hero__card-logo {
-          height: 100%; width: auto;
+          height: 100%;
+          width: auto;
           max-width: 100%;
           object-fit: contain;
           object-position: left center;
-          /* Natural colors — no filter */
         }
         .hero__card-desc {
           font-size: 0.72rem;
@@ -305,12 +282,13 @@ export default function Hero() {
           flex: 1;
         }
         .hero__card-cta {
-          font-size: 0.65rem;
+          font-size: 0.62rem;
           font-weight: 700;
           letter-spacing: 0.06em;
           text-transform: uppercase;
           color: #1f4268;
-          opacity: 0.6;
+          opacity: 0.5;
+          transition: opacity 0.2s;
         }
         .hero__card:hover .hero__card-cta { opacity: 1; }
 
