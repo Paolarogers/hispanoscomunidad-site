@@ -7,7 +7,6 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      {/* Family photo as full background */}
       <div className="hero__bg">
         <img
           src="/images/hero/hc-hero-family.png"
@@ -28,7 +27,6 @@ export default function Hero() {
               src="/images/logos/hc-logo-seal-transparent.png"
               alt="HC"
               className="hero__seal"
-              width="56" height="56"
               onError={e => { e.target.style.display = 'none'; }}
             />
             <span className="eyebrow hero__eyebrow">
@@ -53,22 +51,30 @@ export default function Hero() {
             )}
           </p>
 
-          {/* Pillar pills with real logos */}
+          {/* Pillar pills — single row with arrow */}
           <div className="hero__pillars">
             {[
               { path: '/bonanza', label_es: 'Préstamos',  label_en: 'Loans',     color: '#1a3568', logo: '/images/logos/bonanza/bql-transparent.png' },
               { path: '/zivo',    label_es: 'Seguros',    label_en: 'Insurance', color: '#00477b', logo: '/images/logos/zivo/zivo-transparent.png' },
-              { path: '/media',   label_es: 'Negocios',   label_en: 'Business',  color: '#1f4268', logo: null },
+              { path: '/media',   label_es: 'Negocios',   label_en: 'Business',  color: '#132f5e', logo: null },
               { path: '/unidos',  label_es: 'Comunidad',  label_en: 'Community', color: '#017640', logo: null },
-            ].map((p, i) => (
-              <Link key={i} to={p.path} className="hero__pillar" style={{ '--pillar-color': p.color, background: p.color }}>
-                {p.logo ? (
-                  <img src={p.logo} alt={p.label_es} className="hero__pillar-logo"
-                    onError={e => { e.target.style.display = 'none'; }}/>
-                ) : (
-                  <span className="hero__pillar-label">{lang === 'es' ? p.label_es : p.label_en}</span>
+            ].map((p, i, arr) => (
+              <span key={i} className="hero__pillar-wrap">
+                <Link to={p.path} className="hero__pillar" style={{ background: p.color }}>
+                  {p.logo ? (
+                    <img src={p.logo} alt={lang === 'es' ? p.label_es : p.label_en}
+                      className="hero__pillar-logo"
+                      onError={e => { e.target.style.display = 'none'; }}/>
+                  ) : (
+                    <span className="hero__pillar-label">{lang === 'es' ? p.label_es : p.label_en}</span>
+                  )}
+                </Link>
+                {i < arr.length - 1 && (
+                  <svg className="hero__pillar-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M3 7h8M8 4l3 3-3 3" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 )}
-              </Link>
+              </span>
             ))}
           </div>
 
@@ -81,6 +87,7 @@ export default function Hero() {
             </Link>
           </div>
 
+          {/* Trust bar — single row, no wrapping */}
           <div className="hero__trust">
             {[
               { es: '20,000+ préstamos', en: '20,000+ loans' },
@@ -97,6 +104,7 @@ export default function Hero() {
               </span>
             ))}
           </div>
+
         </div>
       </div>
 
@@ -117,18 +125,18 @@ export default function Hero() {
           pointer-events: none;
         }
 
-        /* Image shown at full natural size — no cropping, anchored top-right */
+        /* Full family photo — anchored top-right, no crop */
         .hero__family-bg {
           position: absolute;
-          top: 0;
-          right: -5%;
-          height: 100%;
+          top: var(--nav-height);
+          right: 0;
+          height: calc(100% - var(--nav-height));
           width: auto;
           object-fit: contain;
           object-position: right top;
         }
 
-        /* Solid navy on left protects text, fades into photo from center */
+        /* Navy solid left → fades to transparent right */
         .hero__overlay {
           position: absolute;
           inset: 0;
@@ -136,9 +144,9 @@ export default function Hero() {
             90deg,
             rgba(13,30,48,1.0)  0%,
             rgba(13,30,48,1.0)  30%,
-            rgba(13,30,48,0.80) 44%,
-            rgba(13,30,48,0.25) 60%,
-            rgba(13,30,48,0.0)  75%
+            rgba(13,30,48,0.82) 44%,
+            rgba(13,30,48,0.22) 62%,
+            rgba(13,30,48,0.0)  76%
           );
           z-index: 1;
         }
@@ -154,22 +162,24 @@ export default function Hero() {
           padding-right: var(--space-lg);
           padding-left: max(24px, calc((100vw - 1280px) / 2 + 24px));
           min-height: calc(100vh - var(--nav-height));
-          max-width: 580px;
+          max-width: 560px;
         }
 
+        /* Eyebrow — larger seal */
         .hero__eyebrow-wrap {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 14px;
           margin-bottom: var(--space-md);
         }
         .hero__seal {
-          width: 52px;
-          height: 52px;
+          width: 68px;
+          height: 68px;
           object-fit: contain;
           border-radius: 50%;
           background: white;
           padding: 4px;
+          flex-shrink: 0;
         }
         .hero__eyebrow { color: #e2af30; margin-bottom: 0; font-size: 0.78rem; }
 
@@ -189,55 +199,68 @@ export default function Hero() {
         }
 
         .hero__tagline {
-          font-family: var(--font-heading);
           font-size: 0.62rem;
           font-weight: 600;
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: rgba(255,255,255,0.4);
-          margin-bottom: var(--space-md);
+          margin-bottom: var(--space-sm);
         }
 
         .hero__body {
-          font-size: 1rem;
+          font-size: 0.95rem;
           color: rgba(253,249,245,0.72);
           line-height: 1.85;
-          margin-bottom: var(--space-lg);
-          max-width: 480px;
+          margin-bottom: var(--space-md);
+          max-width: 460px;
         }
 
+        /* Pills — always one row with arrows between */
         .hero__pillars {
           display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-bottom: var(--space-lg);
+          flex-wrap: nowrap;
+          align-items: center;
+          gap: 6px;
+          margin-bottom: var(--space-md);
+          overflow-x: auto;
+        }
+        .hero__pillar-wrap {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          flex-shrink: 0;
         }
         .hero__pillar {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 8px 14px;
+          padding: 7px 13px;
           border-radius: var(--radius-md);
           text-decoration: none;
           border: 1px solid rgba(255,255,255,0.15);
           transition: all var(--duration) var(--ease);
-          min-height: 44px;
+          min-height: 40px;
+          flex-shrink: 0;
         }
         .hero__pillar:hover { transform: translateY(-2px); opacity: 0.85; }
         .hero__pillar-logo {
-          height: 28px;
+          height: 22px;
           width: auto;
-          max-width: 140px;
+          max-width: 110px;
           object-fit: contain;
           filter: brightness(0) invert(1);
         }
         .hero__pillar-label {
-          font-family: var(--font-heading);
-          font-size: 0.68rem;
-          font-weight: 600;
+          font-size: 0.65rem;
+          font-weight: 700;
           color: white;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.07em;
           text-transform: uppercase;
+          white-space: nowrap;
+        }
+        .hero__pillar-arrow {
+          flex-shrink: 0;
+          opacity: 0.6;
         }
 
         .hero__actions {
@@ -250,7 +273,6 @@ export default function Hero() {
           background: #e2af30;
           color: #1f4268;
           font-weight: 700;
-          font-family: var(--font-heading);
           font-size: 0.75rem;
           letter-spacing: 0.05em;
           padding: 14px 28px;
@@ -266,36 +288,41 @@ export default function Hero() {
         }
         .hero__btn-outline:hover { background: rgba(255,255,255,0.1); }
 
+        /* Trust bar — single row, no wrap */
         .hero__trust {
           display: flex;
-          flex-wrap: wrap;
-          gap: var(--space-sm);
+          flex-wrap: nowrap;
+          gap: 20px;
+          overflow-x: auto;
         }
         .hero__trust-item {
           display: flex;
           align-items: center;
           gap: 6px;
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           font-weight: 500;
           color: rgba(255,255,255,0.5);
+          white-space: nowrap;
+          flex-shrink: 0;
         }
 
         @media (max-width: 768px) {
           .hero__family-bg {
+            top: 0;
             width: 100%;
-            height: auto;
-            right: 0;
-            bottom: 0;
-            opacity: 0.25;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            opacity: 0.2;
           }
-          .hero__overlay {
-            background: rgba(13,30,48,0.85);
-          }
+          .hero__overlay { background: rgba(13,30,48,0.88); }
           .hero__content {
             max-width: 100%;
             padding-left: 24px;
             padding-right: 24px;
           }
+          .hero__pillars { flex-wrap: wrap; }
+          .hero__trust { flex-wrap: wrap; gap: 12px; }
         }
       `}</style>
     </section>
