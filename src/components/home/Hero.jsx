@@ -5,6 +5,45 @@ import { WHATSAPP } from '../../config/site.config.js';
 export default function Hero() {
   const { lang, text } = useLanguage();
 
+  const brands = [
+    {
+      path: '/bonanza',
+      logo: '/images/logos/bonanza/bql-transparent.png',
+      color: '#1a3568',
+      label_es: 'Préstamos',
+      label_en: 'Loans',
+      desc_es: 'Préstamos personales, sobre título y negocios. Sin SSN.',
+      desc_en: 'Personal, title & business loans. No SSN required.',
+    },
+    {
+      path: '/zivo',
+      logo: '/images/logos/zivo/zivo-transparent.png',
+      color: '#005a8e',
+      label_es: 'Seguros',
+      label_en: 'Insurance',
+      desc_es: 'Auto, comercial, hogar y vida. Sin número de seguro social.',
+      desc_en: 'Auto, commercial, home & life. No social security needed.',
+    },
+    {
+      path: '/media',
+      logo: '/images/logos/media/media-logo.png',
+      color: '#132f5e',
+      label_es: 'Negocios',
+      label_en: 'Business',
+      desc_es: 'Marketing, tecnología, consultoría y educación empresarial.',
+      desc_en: 'Marketing, technology, consulting & business education.',
+    },
+    {
+      path: '/unidos',
+      logo: '/images/logos/unidos/unidos-logo.png',
+      color: '#015371',
+      label_es: 'Comunidad',
+      label_en: 'Community',
+      desc_es: 'Organización sin fines de lucro. Recursos para familias latinas.',
+      desc_en: 'Nonprofit supporting Latino families in South Carolina.',
+    },
+  ];
+
   return (
     <section className="hero">
       <div className="hero__bg">
@@ -20,92 +59,81 @@ export default function Hero() {
       </div>
 
       <div className="hero__content">
-        <div className="hero__text">
 
-          <div className="hero__eyebrow-wrap">
-            <img
-              src="/images/logos/hc-logo-seal-transparent.png"
-              alt="HC"
-              className="hero__seal"
-              onError={e => { e.target.style.display = 'none'; }}
-            />
-            <span className="eyebrow hero__eyebrow">
-              Hispanos Comunidad · Greenville, SC
-            </span>
-          </div>
-
-          <h1 className="hero__headline">
-            {text('Todo lo que tu familia', 'Everything your family')}<br/>
-            {text('necesita para prosperar.', 'needs to thrive.')}<br/>
-            <em>{text('En un solo lugar.', 'In one place.')}</em>
-          </h1>
-
-          <p className="hero__tagline">
-            {text('Servicios Esenciales para la Comunidad Latina', 'Essential Services for the Latino Community')}
-          </p>
-
-          <p className="hero__body">
-            {text(
-              'Préstamos, seguros, educación empresarial, y tecnología — sin barreras de idioma, sin discriminación por documentación.',
-              'Loans, insurance, business education, and technology — without language barriers, without documentation discrimination.'
-            )}
-          </p>
-
-          {/* Pillar pills — single row with arrow */}
-          <div className="hero__pillars">
-            {[
-              { path: '/bonanza', label_es: 'Préstamos',  label_en: 'Loans',     color: '#1a3568', logo: '/images/logos/bonanza/bql-transparent.png' },
-              { path: '/zivo',    label_es: 'Seguros',    label_en: 'Insurance', color: '#00477b', logo: '/images/logos/zivo/zivo-transparent.png' },
-              { path: '/media',   label_es: 'Negocios',   label_en: 'Business',  color: '#132f5e', logo: null },
-              { path: '/unidos',  label_es: 'Comunidad',  label_en: 'Community', color: '#017640', logo: null },
-            ].map((p, i, arr) => (
-              <span key={i} className="hero__pillar-wrap">
-                <Link to={p.path} className="hero__pillar" style={{ background: p.color }}>
-                  {p.logo ? (
-                    <img src={p.logo} alt={lang === 'es' ? p.label_es : p.label_en}
-                      className="hero__pillar-logo"
-                      onError={e => { e.target.style.display = 'none'; }}/>
-                  ) : (
-                    <span className="hero__pillar-label">{lang === 'es' ? p.label_es : p.label_en}</span>
-                  )}
-                </Link>
-                {i < arr.length - 1 && (
-                  <svg className="hero__pillar-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M3 7h8M8 4l3 3-3 3" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                )}
-              </span>
-            ))}
-          </div>
-
-          <div className="hero__actions">
-            <a href={WHATSAPP.general} target="_blank" rel="noopener noreferrer" className="btn hero__btn-primary">
-              {text('Hablar con nosotros', 'Talk to us')}
-            </a>
-            <Link to="/nosotros" className="btn hero__btn-outline">
-              {text('Conocer al equipo', 'Meet the team')}
-            </Link>
-          </div>
-
-          {/* Trust bar — single row, no wrapping */}
-          <div className="hero__trust">
-            {[
-              { es: '20,000+ préstamos', en: '20,000+ loans' },
-              { es: '5,000+ familias aseguradas', en: '5,000+ insured families' },
-              { es: '13 años en SC', en: '13 years in SC' },
-              { es: '100% en español', en: '100% in Spanish' },
-            ].map((t, i) => (
-              <span key={i} className="hero__trust-item">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <circle cx="6" cy="6" r="6" fill="#e2af30" opacity="0.3"/>
-                  <path d="M3 6l2 2 4-4" stroke="#e2af30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                {lang === 'es' ? t.es : t.en}
-              </span>
-            ))}
-          </div>
-
+        <div className="hero__eyebrow-wrap">
+          <img
+            src="/images/logos/hc-logo-seal-transparent.png"
+            alt="HC"
+            className="hero__seal"
+            onError={e => { e.target.style.display = 'none'; }}
+          />
+          <span className="hero__eyebrow">
+            Hispanos Comunidad · Greenville, SC
+          </span>
         </div>
+
+        <h1 className="hero__headline">
+          {text('Todo lo que tu familia', 'Everything your family')}<br/>
+          {text('necesita para prosperar.', 'needs to thrive.')}<br/>
+          <em>{text('En un solo lugar.', 'In one place.')}</em>
+        </h1>
+
+        <p className="hero__tagline">
+          {text('Servicios Esenciales para la Comunidad Latina', 'Essential Services for the Latino Community')}
+        </p>
+
+        <p className="hero__body">
+          {text(
+            'Préstamos, seguros, educación empresarial, y tecnología — sin barreras de idioma, sin discriminación por documentación.',
+            'Loans, insurance, business education, and technology — without language barriers, without documentation discrimination.'
+          )}
+        </p>
+
+        {/* Brand cards — logo + short descriptor */}
+        <div className="hero__brands">
+          {brands.map((b, i) => (
+            <Link key={i} to={b.path} className="hero__brand-card" style={{ '--bc': b.color }}>
+              <div className="hero__brand-logo-wrap">
+                <img
+                  src={b.logo}
+                  alt={lang === 'es' ? b.label_es : b.label_en}
+                  className="hero__brand-logo"
+                  onError={e => { e.target.style.display = 'none'; }}
+                />
+              </div>
+              <p className="hero__brand-desc">
+                {lang === 'es' ? b.desc_es : b.desc_en}
+              </p>
+            </Link>
+          ))}
+        </div>
+
+        <div className="hero__actions">
+          <a href={WHATSAPP.general} target="_blank" rel="noopener noreferrer" className="hero__btn-primary">
+            {text('Hablar con nosotros', 'Talk to us')}
+          </a>
+          <Link to="/nosotros" className="hero__btn-outline">
+            {text('Conocer al equipo', 'Meet the team')}
+          </Link>
+        </div>
+
+        <div className="hero__trust">
+          {[
+            { es: '20,000+ préstamos', en: '20,000+ loans' },
+            { es: '5,000+ familias aseguradas', en: '5,000+ insured families' },
+            { es: '13 años en SC', en: '13 years in SC' },
+            { es: '100% en español', en: '100% in Spanish' },
+          ].map((t, i) => (
+            <span key={i} className="hero__trust-item">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <circle cx="6" cy="6" r="6" fill="#e2af30" opacity="0.3"/>
+                <path d="M3 6l2 2 4-4" stroke="#e2af30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              {lang === 'es' ? t.es : t.en}
+            </span>
+          ))}
+        </div>
+
       </div>
 
       <style>{`
@@ -119,13 +147,8 @@ export default function Hero() {
           background: linear-gradient(135deg, #0d1e30 0%, #1a3560 100%);
         }
 
-        .hero__bg {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-        }
+        .hero__bg { position: absolute; inset: 0; pointer-events: none; }
 
-        /* Full family photo — anchored top-right, no crop */
         .hero__family-bg {
           position: absolute;
           top: var(--nav-height);
@@ -136,193 +159,195 @@ export default function Hero() {
           object-position: right top;
         }
 
-        /* Navy solid left → fades to transparent right */
         .hero__overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             90deg,
             rgba(13,30,48,1.0)  0%,
-            rgba(13,30,48,1.0)  30%,
-            rgba(13,30,48,0.82) 44%,
-            rgba(13,30,48,0.22) 62%,
-            rgba(13,30,48,0.0)  76%
+            rgba(13,30,48,1.0)  28%,
+            rgba(13,30,48,0.82) 42%,
+            rgba(13,30,48,0.22) 60%,
+            rgba(13,30,48,0.0)  74%
           );
           z-index: 1;
         }
 
+        /* ── Content column ── */
         .hero__content {
           position: relative;
           z-index: 2;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding-top: var(--space-xl);
-          padding-bottom: var(--space-xl);
-          padding-right: var(--space-lg);
-          padding-left: max(24px, calc((100vw - 1280px) / 2 + 24px));
+          padding: var(--space-xl) 48px var(--space-xl) max(32px, calc((100vw - 1280px) / 2 + 32px));
           min-height: calc(100vh - var(--nav-height));
-          max-width: 560px;
+          width: min(52%, 680px);
         }
 
-        /* Eyebrow — larger seal */
+        /* Eyebrow */
         .hero__eyebrow-wrap {
           display: flex;
           align-items: center;
           gap: 14px;
-          margin-bottom: var(--space-md);
+          margin-bottom: 20px;
         }
         .hero__seal {
-          width: 68px;
-          height: 68px;
-          object-fit: contain;
+          width: 64px;
+          height: 64px;
           border-radius: 50%;
           background: white;
           padding: 4px;
           flex-shrink: 0;
+          object-fit: contain;
         }
-        .hero__eyebrow { color: #e2af30; margin-bottom: 0; font-size: 0.78rem; }
+        .hero__eyebrow {
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #e2af30;
+        }
 
+        /* Headline */
         .hero__headline {
           font-family: var(--font-heading);
-          font-size: clamp(2.2rem, 4vw, 3.8rem);
-          font-weight: 600;
+          font-size: clamp(2rem, 3.2vw, 3.4rem);
+          font-weight: 700;
           color: #fdfaf5;
-          line-height: 1.1;
-          margin-bottom: var(--space-sm);
+          line-height: 1.08;
+          margin-bottom: 16px;
           letter-spacing: -0.02em;
         }
         .hero__headline em {
           color: #e2af30;
           font-style: normal;
           font-weight: 300;
+          white-space: nowrap;
         }
 
         .hero__tagline {
-          font-size: 0.62rem;
-          font-weight: 600;
-          letter-spacing: 0.2em;
+          font-size: 0.6rem;
+          font-weight: 700;
+          letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.4);
-          margin-bottom: var(--space-sm);
+          color: rgba(255,255,255,0.35);
+          margin-bottom: 12px;
         }
 
         .hero__body {
-          font-size: 0.95rem;
-          color: rgba(253,249,245,0.72);
-          line-height: 1.85;
-          margin-bottom: var(--space-md);
-          max-width: 460px;
+          font-size: 0.9rem;
+          color: rgba(253,249,245,0.68);
+          line-height: 1.8;
+          margin-bottom: 28px;
+          max-width: 420px;
         }
 
-        /* Pills — always one row with arrows between */
-        .hero__pillars {
-          display: flex;
-          flex-wrap: nowrap;
-          align-items: center;
-          gap: 6px;
-          margin-bottom: var(--space-md);
-          overflow-x: auto;
+        /* ── Brand cards ── */
+        .hero__brands {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 8px;
+          margin-bottom: 28px;
         }
-        .hero__pillar-wrap {
+        .hero__brand-card {
           display: flex;
-          align-items: center;
-          gap: 6px;
-          flex-shrink: 0;
-        }
-        .hero__pillar {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 7px 13px;
-          border-radius: var(--radius-md);
+          flex-direction: column;
+          gap: 8px;
+          padding: 10px 10px 12px;
+          background: var(--bc);
+          border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 10px;
           text-decoration: none;
-          border: 1px solid rgba(255,255,255,0.15);
-          transition: all var(--duration) var(--ease);
-          min-height: 40px;
-          flex-shrink: 0;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .hero__pillar:hover { transform: translateY(-2px); opacity: 0.85; }
-        .hero__pillar-logo {
-          height: 22px;
+        .hero__brand-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        }
+        .hero__brand-logo-wrap {
+          height: 28px;
+          display: flex;
+          align-items: center;
+        }
+        .hero__brand-logo {
+          height: 100%;
           width: auto;
-          max-width: 110px;
+          max-width: 100%;
           object-fit: contain;
+          object-position: left center;
           filter: brightness(0) invert(1);
         }
-        .hero__pillar-label {
-          font-size: 0.65rem;
-          font-weight: 700;
-          color: white;
-          letter-spacing: 0.07em;
-          text-transform: uppercase;
-          white-space: nowrap;
-        }
-        .hero__pillar-arrow {
-          flex-shrink: 0;
-          opacity: 0.6;
+        .hero__brand-desc {
+          font-size: 0.62rem;
+          color: rgba(255,255,255,0.72);
+          line-height: 1.55;
+          margin: 0;
         }
 
+        /* ── CTA buttons ── */
         .hero__actions {
           display: flex;
+          gap: 12px;
+          margin-bottom: 24px;
           flex-wrap: wrap;
-          gap: var(--space-sm);
-          margin-bottom: var(--space-md);
         }
         .hero__btn-primary {
+          display: inline-flex;
+          align-items: center;
           background: #e2af30;
           color: #1f4268;
-          font-weight: 700;
-          font-size: 0.75rem;
-          letter-spacing: 0.05em;
-          padding: 14px 28px;
-          border-radius: var(--radius-md);
+          font-weight: 800;
+          font-size: 0.72rem;
+          letter-spacing: 0.07em;
+          text-transform: uppercase;
+          padding: 13px 26px;
+          border-radius: 8px;
+          text-decoration: none;
+          transition: background 0.2s;
         }
         .hero__btn-primary:hover { background: #f0c040; }
         .hero__btn-outline {
-          border: 1.5px solid rgba(255,255,255,0.3);
+          display: inline-flex;
+          align-items: center;
+          border: 1.5px solid rgba(255,255,255,0.28);
           color: #fdfaf5;
-          font-size: 0.82rem;
-          padding: 14px 28px;
-          border-radius: var(--radius-md);
+          font-size: 0.8rem;
+          padding: 13px 26px;
+          border-radius: 8px;
+          text-decoration: none;
+          transition: background 0.2s;
         }
-        .hero__btn-outline:hover { background: rgba(255,255,255,0.1); }
+        .hero__btn-outline:hover { background: rgba(255,255,255,0.08); }
 
-        /* Trust bar — single row, no wrap */
+        /* ── Trust bar — single row ── */
         .hero__trust {
           display: flex;
+          gap: 18px;
           flex-wrap: nowrap;
-          gap: 20px;
           overflow-x: auto;
         }
         .hero__trust-item {
           display: flex;
           align-items: center;
           gap: 6px;
-          font-size: 0.72rem;
+          font-size: 0.7rem;
           font-weight: 500;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.45);
           white-space: nowrap;
           flex-shrink: 0;
         }
 
-        @media (max-width: 768px) {
-          .hero__family-bg {
-            top: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            opacity: 0.2;
-          }
-          .hero__overlay { background: rgba(13,30,48,0.88); }
-          .hero__content {
-            max-width: 100%;
-            padding-left: 24px;
-            padding-right: 24px;
-          }
-          .hero__pillars { flex-wrap: wrap; }
-          .hero__trust { flex-wrap: wrap; gap: 12px; }
+        /* ── Mobile ── */
+        @media (max-width: 900px) {
+          .hero__content { width: 100%; padding: 48px 24px; }
+          .hero__family-bg { opacity: 0.18; width: 100%; object-fit: cover; }
+          .hero__overlay { background: rgba(13,30,48,0.9); }
+          .hero__brands { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+          .hero__brands { grid-template-columns: 1fr 1fr; }
+          .hero__trust { flex-wrap: wrap; gap: 10px; }
         }
       `}</style>
     </section>
