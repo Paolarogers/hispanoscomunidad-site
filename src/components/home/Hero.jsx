@@ -8,8 +8,7 @@ export default function Hero() {
   const brands = [
     {
       path: '/bonanza',
-      logo: '/images/logos/bonanza/bql-transparent.png',
-      color: '#1a3568',
+      logo: '/images/logos/bonanza/bql-horizontal.png',
       label_es: 'Préstamos',
       label_en: 'Loans',
       desc_es: 'Préstamos personales, sobre título y negocios. Sin SSN.',
@@ -17,8 +16,7 @@ export default function Hero() {
     },
     {
       path: '/zivo',
-      logo: '/images/logos/zivo/zivo-transparent.png',
-      color: '#005a8e',
+      logo: '/images/logos/zivo/zivo-horizontal.png',
       label_es: 'Seguros',
       label_en: 'Insurance',
       desc_es: 'Auto, comercial, hogar y vida. Sin número de seguro social.',
@@ -27,7 +25,6 @@ export default function Hero() {
     {
       path: '/media',
       logo: '/images/logos/media/media-logo.png',
-      color: '#132f5e',
       label_es: 'Negocios',
       label_en: 'Business',
       desc_es: 'Marketing, tecnología, consultoría y educación empresarial.',
@@ -36,7 +33,6 @@ export default function Hero() {
     {
       path: '/unidos',
       logo: '/images/logos/unidos/unidos-logo.png',
-      color: '#015371',
       label_es: 'Comunidad',
       label_en: 'Community',
       desc_es: 'Organización sin fines de lucro. Recursos para familias latinas.',
@@ -92,7 +88,7 @@ export default function Hero() {
         {/* Brand cards — logo + short descriptor */}
         <div className="hero__brands">
           {brands.map((b, i) => (
-            <Link key={i} to={b.path} className="hero__brand-card" style={{ '--bc': b.color }}>
+            <Link key={i} to={b.path} className="hero__brand-card">
               <div className="hero__brand-logo-wrap">
                 <img
                   src={b.logo}
@@ -254,19 +250,21 @@ export default function Hero() {
           display: flex;
           flex-direction: column;
           gap: 8px;
-          padding: 10px 10px 12px;
-          background: var(--bc);
-          border: 1px solid rgba(255,255,255,0.12);
+          padding: 12px 10px 14px;
+          background: rgba(255,255,255,0.10);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          border: 1px solid rgba(255,255,255,0.18);
           border-radius: 10px;
           text-decoration: none;
-          transition: transform 0.2s ease, box-shadow 0.2s ease;
+          transition: transform 0.2s ease, background 0.2s ease;
         }
         .hero__brand-card:hover {
           transform: translateY(-3px);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+          background: rgba(255,255,255,0.16);
         }
         .hero__brand-logo-wrap {
-          height: 28px;
+          height: 30px;
           display: flex;
           align-items: center;
         }
@@ -276,11 +274,10 @@ export default function Hero() {
           max-width: 100%;
           object-fit: contain;
           object-position: left center;
-          filter: brightness(0) invert(1);
         }
         .hero__brand-desc {
-          font-size: 0.62rem;
-          color: rgba(255,255,255,0.72);
+          font-size: 0.61rem;
+          color: rgba(255,255,255,0.68);
           line-height: 1.55;
           margin: 0;
         }
