@@ -160,19 +160,20 @@ export default function Hero() {
           z-index: 1;
         }
 
-        /* Content column — space-between fills all vertical space */
+        /* Content column — centered, tight grouping */
         .hero__content {
           position: relative; z-index: 2;
           display: flex; flex-direction: column;
-          justify-content: space-between;
+          justify-content: center;
+          gap: 28px;
           padding: 44px 48px 44px max(32px, calc((100vw - 1280px) / 2 + 32px));
           min-height: calc(100vh - var(--nav-height));
           width: min(58%, 760px);
         }
 
         /* TOP */
-        .hero__top { display: flex; flex-direction: column; }
-        .hero__eyebrow-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+        .hero__top { display: flex; flex-direction: column; gap: 0; }
+        .hero__eyebrow-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
         .hero__seal {
           width: 64px; height: 64px; border-radius: 50%;
           background: white; padding: 4px; flex-shrink: 0; object-fit: contain;
@@ -216,7 +217,7 @@ export default function Hero() {
           box-shadow: 0 2px 14px rgba(0,0,0,0.28);
         }
         .hero__brand-card:hover { transform: translateY(-3px); filter: brightness(1.14); }
-        .hero__brand-logo-wrap { height: 28px; display: flex; align-items: center; }
+        .hero__brand-logo-wrap { height: 36px; display: flex; align-items: center; }
         .hero__brand-logo {
           height: 100%; width: auto; max-width: 100%;
           object-fit: contain; object-position: left center;
@@ -227,7 +228,7 @@ export default function Hero() {
           line-height: 1.5; margin: 0; font-weight: 500;
         }
 
-        /* BOTTOM */
+        /* BOTTOM — tight group */
         .hero__bottom { display: flex; flex-direction: column; gap: 14px; }
         .hero__actions { display: flex; gap: 12px; align-items: center; }
         .hero__btn-primary {
