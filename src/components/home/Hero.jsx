@@ -117,15 +117,15 @@ export default function Hero() {
           pointer-events: none;
         }
 
-        /* Image shown at full natural size — no cropping, anchored bottom-right */
+        /* Image shown at full natural size — no cropping, anchored top-right */
         .hero__family-bg {
           position: absolute;
-          bottom: 0;
+          top: 0;
           right: -5%;
           height: 100%;
           width: auto;
           object-fit: contain;
-          object-position: right bottom;
+          object-position: right top;
         }
 
         /* Solid navy on left protects text, fades into photo from center */
