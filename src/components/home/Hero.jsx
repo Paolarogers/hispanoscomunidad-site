@@ -104,8 +104,8 @@ export default function Hero() {
         .hero {
           position: relative;
           min-height: 100vh;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
+          display: flex;
+          align-items: center;
           padding-top: var(--nav-height);
           overflow: hidden;
           background: linear-gradient(135deg, #0d1e30 0%, #1a3560 100%);
@@ -117,34 +117,35 @@ export default function Hero() {
           pointer-events: none;
         }
 
+        /* Image shown at full natural size — no cropping, anchored bottom-right */
+        .hero__family-bg {
+          position: absolute;
+          bottom: 0;
+          right: -5%;
+          height: 100%;
+          width: auto;
+          object-fit: contain;
+          object-position: right bottom;
+        }
+
+        /* Solid navy on left protects text, fades into photo from center */
         .hero__overlay {
           position: absolute;
           inset: 0;
           background: linear-gradient(
             90deg,
             rgba(13,30,48,1.0)  0%,
-            rgba(13,30,48,1.0)  35%,
-            rgba(13,30,48,0.75) 50%,
-            rgba(13,30,48,0.20) 65%,
-            rgba(13,30,48,0.0)  78%
+            rgba(13,30,48,1.0)  30%,
+            rgba(13,30,48,0.80) 44%,
+            rgba(13,30,48,0.25) 60%,
+            rgba(13,30,48,0.0)  75%
           );
           z-index: 1;
-        }
-
-        .hero__family-bg {
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 75%;
-          height: 100%;
-          object-fit: cover;
-          object-position: 15% center;
         }
 
         .hero__content {
           position: relative;
           z-index: 2;
-          grid-column: 1 / 2;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -153,7 +154,7 @@ export default function Hero() {
           padding-right: var(--space-lg);
           padding-left: max(24px, calc((100vw - 1280px) / 2 + 24px));
           min-height: calc(100vh - var(--nav-height));
-          max-width: 620px;
+          max-width: 580px;
         }
 
         .hero__eyebrow-wrap {
@@ -280,26 +281,17 @@ export default function Hero() {
         }
 
         @media (max-width: 768px) {
-          .hero {
-            grid-template-columns: 1fr;
-          }
           .hero__family-bg {
             width: 100%;
-            height: 50%;
-            top: auto;
+            height: auto;
+            right: 0;
             bottom: 0;
-            object-position: center top;
-            opacity: 0.35;
+            opacity: 0.25;
           }
           .hero__overlay {
-            background: linear-gradient(
-              180deg,
-              rgba(13,30,48,0.95) 50%,
-              rgba(13,30,48,0.7) 100%
-            );
+            background: rgba(13,30,48,0.85);
           }
           .hero__content {
-            grid-column: 1;
             max-width: 100%;
             padding-left: 24px;
             padding-right: 24px;
